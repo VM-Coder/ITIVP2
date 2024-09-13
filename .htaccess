@@ -7,4 +7,8 @@ RewriteRule ^profile?$ src/pages/profile.php
 RewriteRule ^login?$ src/controllers/UserController.php
 RewriteRule ^signup?$ src/controllers/UserController.php
 
+RewriteRule ^add_car?$ src/controllers/CarController.php
+RewriteRule ^search_car?$ src/controllers/CarController.php
+RewriteRule ^delete_car?$ src/controllers/CarController.php
+
 RewriteRule ^style.css$ src/pages/style.css
