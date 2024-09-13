@@ -3,18 +3,7 @@
     session_start(); //используется во всех файлах, где необходим доступ к переменной $_SESSION
 
     require_once '../models/User.php';
-
-    Database::connect();
-
-    switch ($_SERVER['REQUEST_URI']){
-        case '/login':
-            UserController::login();
-            break;
-
-        case '/signup':
-            UserController::signup();
-            break;
-    }
+    require_once '../server/validator.php';
 
     class UserController {
         public static function login(){
@@ -40,6 +29,29 @@
             try {
                 if ($_POST['password'] != $_POST['password_confirm'])
                     throw new Exception("Пароли не совпадают");        
+
+                $validator = new Validator(
+                    [
+                        $_POST['email'], 
+                        $_POST['password'], 
+                        $_POST['firstname'], 
+                        $_POST['lastname']
+                    ],
+                    [
+                        '/^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$/',
+                        '/^[\w\-\.#?!@$%^&*]{8,32}$/',
+                        '/^[A-ZА-Я][a-zа-я]{1,32}$/',
+                        '/^[A-ZА-Я][a-zа-я]{1,32}$/'
+                    ],
+                    [
+                        'Адрес почты недействителен',
+                        'Пароль должен состоять из букв латинского алфавита, цифр, символов .#?!@$%^&*- и иметь длину от 8 до 32 символов',
+                        'Имя должно состоять из букв латинского или кириллического алфавитов, начинаться с заглавной буквы и иметь длину от 0 до 32 символов',
+                        'Фамилия должна состоять из букв латинского или кириллического алфавитов, начинаться с заглавной буквы и иметь длину от 0 до 32 символов'
+                    ] 
+                );
+                if (!$validator->validate())
+                    throw new Exception($validator->last_message);
 
                 $users = User::where([
                     'email = \'' . $_POST['email'] . '\''

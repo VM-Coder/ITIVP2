@@ -4,7 +4,7 @@ RewriteRule ^authorization?$ src/pages/authorization.php
 RewriteRule ^registration?$ src/pages/registration.php
 RewriteRule ^profile?$ src/pages/profile.php
 
-RewriteRule ^login?$ src/controllers/UserController.php
-RewriteRule ^signup?$ src/controllers/UserController.php
+RewriteRule ^login?$ src/server/router.php
+RewriteRule ^signup?$ src/server/router.php
 
 RewriteRule ^style.css$ src/pages/style.css
