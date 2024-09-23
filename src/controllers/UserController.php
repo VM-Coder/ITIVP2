@@ -18,11 +18,11 @@
                 
                 $_SESSION['user'] = $users[0];
 
-                header('location: profile', false);
+                header('location: ../profile', false);
             } 
             catch (Exception $ex){
                 $_SESSION['error'] = $ex->getMessage();
-                header('location: authorization', false);
+                header('location: ../authorization', false);
             }
         }
         public static function signup(){
@@ -71,11 +71,11 @@
 
                 $user->save();
 
-                header('location: authorization', false);
+                header('location: ../authorization', false);
             } 
             catch (Exception $ex){
                 $_SESSION['error'] = $ex->getMessage();
-                header('location: registration', replace: false);
+                header('location: ../registration', replace: false);
             }
         } 
     }

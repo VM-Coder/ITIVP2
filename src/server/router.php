@@ -1,14 +1,19 @@
 <?php
 
     require_once '../controllers/UserController.php';
+    require_once '../controllers/CarController.php';
     require_once './database.php';
 
     Database::connect();
 
     class Router {
         public static $routes = [
-            '/login' => ['UserController', 'login'],
-            '/signup' => ['UserController', 'signup']
+            '/user/login' => ['UserController', 'login'],
+            '/user/signup' => ['UserController', 'signup'],
+            '/car/add' => ['Car', 'add'],
+            '/car/delete' => ['Car', 'delete'],
+            '/car/search' => ['Car', 'search'],
+            '/car/all' => ['Car', 'all']
         ];
 
         public static function resolve(){

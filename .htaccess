@@ -1,14 +1,22 @@
 RewriteEngine On
 
+# перенаправление с базового URL на страницу профиля
+RewriteCond %{HTTP_HOST} !^m\.
+RewriteRule ^$ /profile [R,L]
+
+RewriteRule ^404$ src/pages/404.php
+
 RewriteRule ^authorization?$ src/pages/authorization.php
 RewriteRule ^registration?$ src/pages/registration.php
 RewriteRule ^profile?$ src/pages/profile.php
 
-RewriteRule ^login?$ src/server/router.php
-RewriteRule ^signup?$ src/server/router.php
+RewriteRule ^user/login?$ src/server/router.php
+RewriteRule ^user/signup?$ src/server/router.php
 
-RewriteRule ^add_car?$ src/controllers/CarController.php
-RewriteRule ^search_car?$ src/controllers/CarController.php
-RewriteRule ^delete_car?$ src/controllers/CarController.php
+RewriteRule ^car/add?$ src/controllers/router.php
+RewriteRule ^car/search?$ src/controllers/router.php
+RewriteRule ^car/delete?$ src/controllers/router.php
 
 RewriteRule ^style.css$ src/pages/style.css
+
+ErrorDocument 404 /404

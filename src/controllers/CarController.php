@@ -6,24 +6,9 @@
 
     Database::connect();
 
-    switch ($_SERVER['REQUEST_URI']){
-        case '/add_car':
-            CarController::addCar();
-            break;
-        case '/search_car':
-            CarController::searchCar();
-            break;
-        case '/delete_car':
-            CarController::deleteCar();
-            break;
-        default:
-            CarController::showAll();
-            break;
-    }
-
     class CarController {
         
-        public static function addCar() {
+        public static function add() {
             try {
                 $car = new Car();
                 $car->id = 0;
@@ -39,7 +24,7 @@
             header('location: profile', false);
         }
 
-        public static function searchCar() {
+        public static function search() {
             try {
                 $model = $_POST['search_model'];
                 $cars = Car::where(["model LIKE '%" . $model . "%'"]); 
@@ -56,7 +41,7 @@
             header('location: profile', false);
         }
 
-        public static function deleteCar() {
+        public static function delete() {
             try {
                 $id = $_POST['delete_id'];
                 $cars = Car::where(["id = '" . $id . "'"]);
@@ -76,10 +61,8 @@
             header('location: profile', false);
         }
 
-        public static function showAll() {
+        public static function all() {
             $_SESSION['cars'] = Car::all() ?? [];
             header('Location: index.php');
         }
     }
-
-?>
