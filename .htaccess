@@ -13,9 +13,9 @@ RewriteRule ^profile?$ src/pages/profile.php
 RewriteRule ^user/login?$ src/server/router.php
 RewriteRule ^user/signup?$ src/server/router.php
 
-RewriteRule ^car/add?$ src/controllers/router.php
-RewriteRule ^car/search?$ src/controllers/router.php
-RewriteRule ^car/delete?$ src/controllers/router.php
+RewriteRule ^car/add?$ src/server/router.php
+RewriteRule ^car/search?$ src/server/router.php
+RewriteRule ^car/delete?$ src/server/router.php
 
 RewriteRule ^style.css$ src/pages/style.css
 

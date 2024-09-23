@@ -13,6 +13,9 @@
                     'password = \'' . sha1($_POST['password']) . '\''
                 ]);
 
+                if (gettype(value: $users) == 'string')
+                    throw new Exception($users);
+
                 if (!$users)
                     throw new Exception("Неправильный логин / пароль");
                 
@@ -50,12 +53,16 @@
                         'Фамилия должна состоять из букв латинского или кириллического алфавитов, начинаться с заглавной буквы и иметь длину от 0 до 32 символов'
                     ] 
                 );
+
                 if (!$validator->validate())
                     throw new Exception($validator->last_message);
 
                 $users = User::where([
                     'email = \'' . $_POST['email'] . '\''
                 ]);
+
+                if (gettype(value: $users) == 'string')
+                    throw new Exception($users);
 
                 if ($users)
                     throw new Exception("Пользователь с данной почтой уже существует");

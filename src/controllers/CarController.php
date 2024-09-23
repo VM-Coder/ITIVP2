@@ -12,8 +12,8 @@
             try {
                 $car = new Car();
                 $car->id = 0;
-                $car->class = $_POST['car_class'];
-                $car->model = $_POST['car_model'];
+                $car->class = $_POST['class'];
+                $car->model = $_POST['model'];
                 $car->save(); 
 
                 $_SESSION['success'] = 'Машина успешно добавлена!';
@@ -21,12 +21,12 @@
                 $_SESSION['error'] = 'Ошибка при добавлении машины: ' . $ex->getMessage();
             }
 
-            header('location: profile', false);
+            header('location: ../profile', false);
         }
 
         public static function search() {
             try {
-                $model = $_POST['search_model'];
+                $model = $_POST['model'];
                 $cars = Car::where(["model LIKE '%" . $model . "%'"]); 
 
                 if (!$cars) {
@@ -38,12 +38,12 @@
                 $_SESSION['error'] = 'Ошибка при поиске машины: ' . $ex->getMessage();
             }
 
-            header('location: profile', false);
+            header('location: ../profile', false);
         }
 
         public static function delete() {
             try {
-                $id = $_POST['delete_id'];
+                $id = $_POST['id'];
                 $cars = Car::where(["id = '" . $id . "'"]);
 
                 if (!$cars) {
@@ -58,7 +58,7 @@
                 $_SESSION['error'] = 'Ошибка при удалении машины: ' . $ex->getMessage();
             }
 
-            header('location: profile', false);
+            header('location: ../profile', false);
         }
 
         public static function all() {

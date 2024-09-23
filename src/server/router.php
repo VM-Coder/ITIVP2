@@ -10,10 +10,10 @@
         public static $routes = [
             '/user/login' => ['UserController', 'login'],
             '/user/signup' => ['UserController', 'signup'],
-            '/car/add' => ['Car', 'add'],
-            '/car/delete' => ['Car', 'delete'],
-            '/car/search' => ['Car', 'search'],
-            '/car/all' => ['Car', 'all']
+            '/car/add' => ['CarController', 'add'],
+            '/car/delete' => ['CarController', 'delete'],
+            '/car/search' => ['CarController', 'search'],
+            '/car/all' => ['CarController', 'all']
         ];
 
         public static function resolve(){

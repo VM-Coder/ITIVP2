@@ -22,6 +22,9 @@
                 ]
             );
 
+            if (gettype($data) == 'string')
+                return $data;
+
             if ($data->num_rows > 0){
                 $data = $data->fetch_all()[0];
                 
@@ -44,6 +47,9 @@
                 static::$table,
                 $conditions
             );
+
+            if (gettype($data) == 'string')
+                return $data;
 
             if ($data->num_rows > 0){
                 $data = $data->fetch_all(MYSQLI_ASSOC);
@@ -72,6 +78,9 @@
             $data = Database::select(
                 static::$table
             );
+
+            if (gettype($data) == 'string')
+                return $data;
 
             if ($data->num_rows > 0){
                 $data = $data->fetch_all();
@@ -106,26 +115,41 @@
             ];
 
             if (static::get($this->id) == null){
-                Database::insert(
+                $result = Database::insert(
                     static::$table,
                     $values
                 );
+
+                if (gettype(value: $result) == 'string')
+                    return $result;
+
+                return true;
             } else {
-                Database::update(
+                $result = Database::update(
                     static::$table,
                     $values,
                     [
                         'id = ' . $this->id
                     ]
                 );
+
+                if (gettype(value: $result) == 'string')
+                    return $result;
+
+                return true;
             }
         }
         public function destroy() {
-            Database::delete(
+            $result = Database::delete(
                 static::$table,
                 [
                     'id = ' . $this->id
                 ]
             );
+
+            if (gettype(value: $result) == 'string')
+                return $result;
+
+            return true;
         }
     }

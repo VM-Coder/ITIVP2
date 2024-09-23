@@ -7,19 +7,21 @@
         static string $database = "traffic_control";
         static int $port = 3306;
         static bool|mysqli $connection;
-        public static function connect(): bool{
-            static::$connection = mysqli_connect(
-                static::$hostname, 
-                static::$username, 
-                static::$password, 
-                static::$database, 
-                static::$port
-            );
-
-            if (static::$connection)
-                return true;
-
-            return false;
+        public static function connect(){
+            try {
+                static::$connection = mysqli_connect(
+                    static::$hostname, 
+                    static::$username, 
+                    static::$password, 
+                    static::$database, 
+                    static::$port
+                );
+            }
+            catch (Exception $ex){
+                $_SESSION['error'] = 'Соединение потеряно ';
+                header('location: ' . $_SERVER['HTTP_REFERER']);
+                die();
+            }
         }
         /**
          * @param string $table - таблица из которой выбираются элементы
@@ -29,6 +31,11 @@
          * @param array|null $order_by - массив полей по которым сортируется результирующий набор. Направление сортировки указывается вместе с полем. Пример ['id', 'firstname DESC'] == '...ORDER BY id, firstname DESC'
          */
         public static function select(string $table, array $where = null, array $joins = null, array $group_by = null, array $order_by = null){
+            file_put_contents('log.txt', static::$connection->ping());
+            
+            if (!static::$connection->ping())
+                return 'Соединение потеряно';
+
             $sql = 'SELECT * FROM ' . $table;
             
             $join = '';
@@ -63,6 +70,9 @@
          * @param array $values - ассоциативный массив, где ключи являются полями таблицы, а значения - значениями полей вставляемой записи
          */
         public static function insert(string $table, array $values){
+            if (!static::$connection->ping())
+                return 'Соединение потеряно';
+
             $sql = 'INSERT INTO ' . $table;
 
             $keys = array_keys($values);
@@ -83,6 +93,9 @@
          * @param array|null $where - массив условий аналогично методу select
          */
         public static function update(string $table, array $values, array $where = null){
+            if (!static::$connection->ping())
+                return 'Соединение потеряно';
+
             $sql = 'UPDATE ' . $table;
 
             $pairs = [];
@@ -107,6 +120,9 @@
          * @param array $where - массив условий аналогично методу select. Наличие $where обязательно!
          */
         public static function delete(string $table, array $where){
+            if (!static::$connection->ping())
+                return 'Соединение потеряно';
+
             $sql = 'DELETE FROM ' . $table; 
 
             $conditions = 'WHERE ' . implode(' AND ', $where);

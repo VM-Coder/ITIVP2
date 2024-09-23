@@ -18,7 +18,7 @@
             if (!empty($_SESSION['cars'])){
                 foreach ($_SESSION['cars'] as $car){
                     echo '
-                    <tr>
+                    <tr class="bg-white">
                         <td class="border border-slate-300 px-4 py-2">' . htmlspecialchars($car->id) . '</td>
                         <td class="border border-slate-300 px-4 py-2">' . htmlspecialchars($car->class) . '</td>
                         <td class="border border-slate-300 px-4 py-2">' . htmlspecialchars($car->model) . '</td>
