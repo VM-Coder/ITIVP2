@@ -1,14 +1,14 @@
 RewriteEngine On
 
-# перенаправление с базового URL на страницу профиля
 RewriteCond %{HTTP_HOST} !^m\.
-RewriteRule ^$ /profile [R,L]
+RewriteRule ^$ /main [R,L]
 
 RewriteRule ^404$ src/pages/404.php
 
 RewriteRule ^authorization?$ src/pages/authorization.php
 RewriteRule ^registration?$ src/pages/registration.php
 RewriteRule ^profile?$ src/pages/profile.php
+RewriteRule ^main?$ src/pages/main.php
 
 RewriteRule ^user/login?$ src/server/router.php
 RewriteRule ^user/signup?$ src/server/router.php
