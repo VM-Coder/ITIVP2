@@ -23,7 +23,10 @@
             );
 
             if (gettype($data) == 'string')
-                return $data;
+                return [
+                    'data' => $data,
+                    'status' => false
+                ];
 
             if ($data->num_rows > 0){
                 $data = $data->fetch_all()[0];
@@ -37,10 +40,16 @@
                 $user->lastname = $data['lastname'];
                 $user->is_admin = $data['admin'];
 
-                return $user;
+                return [
+                    'data' => $user,
+                    'status' => true
+                ];
             }
 
-            return null;
+            return [
+                'data' => 'Пользователь не найден',
+                'status' => false
+            ];
         }
         public static function where(array $conditions){
             $data = Database::select(
@@ -49,7 +58,10 @@
             );
 
             if (gettype($data) == 'string')
-                return $data;
+                return [
+                    'data' => $data,
+                    'status' => false
+                ];
 
             if ($data->num_rows > 0){
                 $data = $data->fetch_all(MYSQLI_ASSOC);
@@ -69,10 +81,16 @@
                     array_push($users, $user);
                 }
 
-                return $users;
+                return [
+                    'data' => $users,
+                    'status' => true
+                ];
             }
 
-            return null;
+            return [
+                'data' => 'Пользователи не найдены',
+                'status' => false
+            ];
         }
         public static function all(){
             $data = Database::select(
@@ -80,7 +98,10 @@
             );
 
             if (gettype($data) == 'string')
-                return $data;
+                return [
+                    'data' => $data,
+                    'status' => false
+                ];
 
             if ($data->num_rows > 0){
                 $data = $data->fetch_all();
@@ -100,10 +121,16 @@
                     array_push($users, $user);
                 }
 
-                return $users;
+                return [
+                    'data' => $users,
+                    'status' => true
+                ];
             }
 
-            return null;
+            return [
+                'data' => 'Пользователи не найдены',
+                'status' => false
+            ];
         }
         public function save() {
             $values = [
@@ -114,16 +141,22 @@
                 'is_admin' => $this->is_admin ? 1 : 0
             ];
 
-            if (static::get($this->id) == null){
+            if (static::get($this->id)['data'] == 'Пользователь не найден'){
                 $result = Database::insert(
                     static::$table,
                     $values
                 );
 
                 if (gettype(value: $result) == 'string')
-                    return $result;
+                    return [
+                        'data' => $result,
+                        'status' => false
+                    ];
 
-                return true;
+                return [
+                    'data' => 'Пользователь создан',
+                    'status' => true
+                ];
             } else {
                 $result = Database::update(
                     static::$table,
@@ -134,9 +167,15 @@
                 );
 
                 if (gettype(value: $result) == 'string')
-                    return $result;
+                    return [
+                        'data' => $result,
+                        'status' => false
+                    ];
 
-                return true;
+                return [
+                    'data' => 'Пользователь обновлён',
+                    'status' => true
+                ];
             }
         }
         public function destroy() {
@@ -148,8 +187,14 @@
             );
 
             if (gettype(value: $result) == 'string')
-                return $result;
+                return [
+                    'data' => $result,
+                    'status' => false
+                ];
 
-            return true;
+            return [
+                'data' => 'Пользователь удалён',
+                'status' => true
+            ];
         }
     }

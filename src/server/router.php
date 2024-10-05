@@ -13,7 +13,6 @@
             '/car/add' => ['CarController', 'add'],
             '/car/delete' => ['CarController', 'delete'],
             '/car/search' => ['CarController', 'search'],
-            '/car/all' => ['CarController', 'all']
         ];
 
         public static function resolve(){

@@ -17,6 +17,12 @@
                 ['id = ' . $primary_key]
             );
 
+            if (gettype($data) == 'string')
+                return [
+                    'data' => $data,
+                    'status' => false
+                ];
+
             if ($data->num_rows > 0) {
                 $data = $data->fetch_all()[0];
 
@@ -25,10 +31,16 @@
                 $car->class = $data['class'];
                 $car->model = $data['model'];
 
-                return $car;
+                return [
+                    'data' => $car,
+                    'status' => true
+                ];
             }
 
-            return null;
+            return [
+                'data' => 'Автомобиль не найден',
+                'status' => false
+            ];
         }
 
         public static function where(array $conditions) {
@@ -37,6 +49,12 @@
                 $conditions
             );
 
+            if (gettype($data) == 'string')
+                return [
+                    'data' => $data,
+                    'status' => false
+                ];
+
             if ($data->num_rows > 0) {
                 $data = $data->fetch_all(MYSQLI_ASSOC);
 
@@ -50,10 +68,16 @@
                     array_push($cars, $car);
                 }
 
-                return $cars;
+                return [
+                    'data' => $cars,
+                    'status' => true
+                ];
             }
 
-            return null;
+            return [
+                'data' => 'Автомобили не найдены',
+                'status' => false
+            ];
         }
 
         public static function all() {
@@ -61,6 +85,12 @@
                 static::$table
             );
 
+            if (gettype($data) == 'string')
+                return [
+                    'data' => $data,
+                    'status' => false
+                ];
+
             if ($data->num_rows > 0) {
                 $data = $data->fetch_all(MYSQLI_ASSOC);
 
@@ -74,10 +104,16 @@
                     array_push($cars, $car);
                 }
 
-                return $cars;
+                return [
+                    'data' => $cars,
+                    'status' => true
+                ];
             }
 
-            return null;
+            return [
+                'data' => 'Автомобили не найдены',
+                'status' => false
+            ];
         }
 
         public function save() {
@@ -86,24 +122,61 @@
                 'model' => '\'' . $this->model . '\''
             ];
 
-            if (static::get($this->id) == null) {
-                Database::insert(
+            if (static::get($this->id)['data'] == 'Автомобиль не найден') {
+                $result = Database::insert(
                     static::$table,
                     $values
                 );
+
+                if (gettype(value: $result) == 'string')
+                    return [
+                        'data' => $result,
+                        'status' => false
+                    ];
+
+                return [
+                    'data' => 'Автомобиль создан',
+                    'status' => true
+                ];
             } else {
-                Database::update(
+                $result = Database::update(
                     static::$table,
                     $values,
-                    ['id = ' . $this->id]
+                    [
+                        'id = ' . $this->id
+                    ]
                 );
+
+                if (gettype(value: $result) == 'string')
+                    return [
+                        'data' => $result,
+                        'status' => false
+                    ];
+
+                return [
+                    'data' => 'Автомобиль обновлён',
+                    'status' => true
+                ];
             }
         }
 
         public function destroy() {
-            Database::delete(
+            $result = Database::delete(
                 static::$table,
-                ['id = ' . $this->id]
+                [
+                    'id = ' . $this->id
+                ]
             );
+
+            if (gettype(value: $result) == 'string')
+                return [
+                    'data' => $result,
+                    'status' => false
+                ];
+
+            return [
+                'data' => 'Автомобиль удалён',
+                'status' => true
+            ];
         }
     }

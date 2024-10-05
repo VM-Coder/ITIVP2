@@ -14,7 +14,10 @@
                 $car->id = 0;
                 $car->class = $_POST['class'];
                 $car->model = $_POST['model'];
-                $car->save(); 
+                $result = $car->save(); 
+
+                if (!$result['status'])
+                    throw new Exception($result['data']);
 
                 $_SESSION['success'] = 'Машина успешно добавлена!';
             } catch (Exception $ex) {
@@ -27,12 +30,19 @@
         public static function search() {
             try {
                 $model = $_POST['model'];
-                $cars = Car::where(["model LIKE '%" . $model . "%'"]); 
 
-                if (!$cars) {
-                    $_SESSION['error'] = 'Машины с моделью "' . htmlspecialchars($model) . '" не найдены';
-                } else {
-                    $_SESSION['cars'] = $cars; 
+                $cars = $model != '' ? 
+                    Car::where(["model LIKE '%" . $model . "%'"]) : 
+                    Car::all();
+
+                if ($cars['data'] == 'Автомобили не найдены') {
+                    throw new Exception('Машины с моделью "' . htmlspecialchars($model) . '" не найдены');
+                } 
+                else if (!$cars['status']) {
+                    throw new Exception($cars['data']);
+                }
+                else {
+                    $_SESSION['cars'] = $cars['data']; 
                 }
             } catch (Exception $ex) {
                 $_SESSION['error'] = 'Ошибка при поиске машины: ' . $ex->getMessage();
@@ -46,10 +56,14 @@
                 $id = $_POST['id'];
                 $cars = Car::where(["id = '" . $id . "'"]);
 
-                if (!$cars) {
-                    $_SESSION['error'] = 'Машина с ID "' . (int)$id . '" не найдена';
-                } else {
-                    foreach ($cars as $car) {
+                if ($cars['data'] == 'Автомобиль не найден') {
+                    throw new Exception('Машина с ID "' . (int)$id . '" не найдена');
+                } 
+                else if (!$cars['status']) {
+                    throw new Exception($cars['data']);
+                }
+                else {
+                    foreach ($cars['data'] as $car) {
                         $car->destroy(); 
                     }
                     $_SESSION['success'] = 'Машина успешно удалена!';
@@ -59,10 +73,5 @@
             }
 
             header('location: ../profile', false);
-        }
-
-        public static function all() {
-            $_SESSION['cars'] = Car::all() ?? [];
-            header('Location: index.php');
         }
     }

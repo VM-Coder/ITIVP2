@@ -13,13 +13,14 @@
                     'password = \'' . sha1($_POST['password']) . '\''
                 ]);
 
-                if (gettype(value: $users) == 'string')
-                    throw new Exception($users);
-
-                if (!$users)
-                    throw new Exception("Неправильный логин / пароль");
+                if (!$users['status']){
+                    if ($users['data'] == 'Пользователи не найдены')
+                        throw new Exception('Неправильный логин/пароль');
+                    else
+                        throw new Exception($users['data']);
+                }
                 
-                $_SESSION['user'] = $users[0];
+                $_SESSION['user'] = $users['data'][0];
 
                 header('location: ../profile', false);
             } 
@@ -61,11 +62,11 @@
                     'email = \'' . $_POST['email'] . '\''
                 ]);
 
-                if (gettype(value: $users) == 'string')
-                    throw new Exception($users);
+                if (!$users['status'] && $users['data'] != 'Пользователи не найдены')
+                    throw new Exception($users['data']);
 
-                if ($users)
-                    throw new Exception("Пользователь с данной почтой уже существует");
+                if ($users['status'])
+                    throw new Exception('Пользователь с данной почтой уже существует');
 
                 $user = new User();
 
