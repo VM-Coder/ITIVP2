@@ -104,7 +104,7 @@
                 ];
 
             if ($data->num_rows > 0){
-                $data = $data->fetch_all();
+                $data = $data->fetch_all(MYSQLI_ASSOC);
 
                 $users = [];
 
@@ -116,7 +116,7 @@
                     $user->password = $row['password'];
                     $user->firstname = $row['firstname'];
                     $user->lastname = $row['lastname'];
-                    $user->is_admin = $row['admin'];
+                    $user->is_admin = $row['is_admin'];
 
                     array_push($users, $user);
                 }
