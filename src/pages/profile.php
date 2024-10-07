@@ -23,6 +23,7 @@ $form_action = ''
 <?php if ($user->is_admin): ?>
     <div class="flex flex-col p-12 box-content inset-0 w-3/4 h-fit m-auto gap-4 rounded-lg shadow-lg bg-white">
         <h1 class="font-bold text-slate-700 text-xl text-center">Взаимодействие с таблицей машин</h1>
+
         <hr class="border-slate-700 border-[1px]">
 
         <div class="flex flex-row justify-between gap-8 bg-white">
@@ -58,6 +59,7 @@ $form_action = ''
             <?php endif; ?>
         </div>
     </div>
+
 <?php else: ?>
 
     <br>
@@ -66,6 +68,8 @@ $form_action = ''
         <br>
         <?= $user->lastname ?>;
     </div>
+
+    <? include '../ui/forms/car_user.php' ?>
 
 <?php endif; ?>
 

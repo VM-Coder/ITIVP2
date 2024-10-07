@@ -3,6 +3,8 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} !^m\.
 RewriteRule ^$ /main [R,L]
 
+# pages
+
 RewriteRule ^404$ src/pages/404.php
 
 RewriteRule ^authorization?$ src/pages/authorization.php
@@ -10,8 +12,14 @@ RewriteRule ^registration?$ src/pages/registration.php
 RewriteRule ^profile?$ src/pages/profile.php
 RewriteRule ^main?$ src/pages/main.php
 
+# API
+
 RewriteRule ^user/login?$ src/server/router.php
 RewriteRule ^user/signup?$ src/server/router.php
+
+RewriteRule ^user/leave?$ src/server/router.php
+RewriteRule ^user/update/car?$ src/server/router.php
+
 RewriteRule ^user/users?$ src/server/router.php
 
 RewriteRule ^car/add?$ src/server/router.php
@@ -19,6 +27,10 @@ RewriteRule ^car/search?$ src/server/router.php
 RewriteRule ^car/delete?$ src/server/router.php
 RewriteRule ^car/cars?$ src/server/router.php
 
+# static files
+
 RewriteRule ^style.css$ src/pages/style.css
+
+# error pages
 
 ErrorDocument 404 /404
