@@ -16,12 +16,16 @@ RewriteRule ^main?$ src/pages/main.php
 
 RewriteRule ^user/login?$ src/server/router.php
 RewriteRule ^user/signup?$ src/server/router.php
+
 RewriteRule ^user/leave?$ src/server/router.php
 RewriteRule ^user/update/car?$ src/server/router.php
+
+RewriteRule ^user/users?$ src/server/router.php
 
 RewriteRule ^car/add?$ src/server/router.php
 RewriteRule ^car/search?$ src/server/router.php
 RewriteRule ^car/delete?$ src/server/router.php
+RewriteRule ^car/cars?$ src/server/router.php
 
 # static files
 

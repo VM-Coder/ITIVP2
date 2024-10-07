@@ -69,7 +69,17 @@ class CarController
         } catch (Exception $ex) {
             $_SESSION['error'] = 'Ошибка при удалении машины: ' . $ex->getMessage();
         }
-
+      
         header('location: ../profile', false);
+    }
+
+    public static function list() {
+        $result = Car::all(); 
+
+        if ($result['status']) {
+            $_SESSION['cars'] = $result['data']; 
+        } else {
+            $_SESSION['error'] = $result['data']; 
+        }
     }
 }

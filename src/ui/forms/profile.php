@@ -38,16 +38,6 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
 </div>
 
 <div class="mt-12"> 
-    <h1 class="font-bold text-slate-700 text-xl text-center">Таблица машин</h1>
-    <table class="w-full mt-4 table-auto border-collapse">
-        <thead>
-            <tr class="bg-slate-100">
-                <th class="border border-slate-300 px-4 py-2">ID</th>
-                <th class="border border-slate-300 px-4 py-2">Класс</th>
-                <th class="border border-slate-300 px-4 py-2">Модель</th>
-            </tr>
-        </thead>
-
         <tbody>
             <?php if (!empty($_SESSION['cars'])): ?>
                 <?php foreach ($_SESSION['cars'] as $car): ?>

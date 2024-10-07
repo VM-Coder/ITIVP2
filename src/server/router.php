@@ -12,10 +12,12 @@ class Router
         '/user/login' => ['UserController', 'login'],
         '/user/signup' => ['UserController', 'signup'],
         '/user/leave' => ['UserController', 'leave'],
+        '/user/users' => ['UserController', 'list'],
         '/user/update/car' => ['UserController', 'car_update'],
         '/car/add' => ['CarController', 'add'],
         '/car/delete' => ['CarController', 'delete'],
         '/car/search' => ['CarController', 'search'],
+        '/car/cars' => ['CarController', 'list'],
     ];
 
     public static function resolve()

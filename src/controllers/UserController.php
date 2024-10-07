@@ -139,4 +139,14 @@ class UserController
             header('location: ../../profile', false);
         }
     }
+  
+    public static function list() {
+        $result = User::all(); 
+
+        if ($result['status']) {
+            $_SESSION['users'] = $result['data']; 
+        } else {
+            $_SESSION['error'] = $result['data']; 
+        }
+    } 
 }
