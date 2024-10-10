@@ -43,7 +43,7 @@ $form_action = ''
     <div class="mt-12">
         <h1 class="font-bold text-slate-700 text-xl text-center">Выбор таблицы</h1>
         <form method="POST" action="<?= $form_action ?>" class="text-center">
-            <select name="select_table" onchange="this.form.submit()" class="p-2 border-2 rounded-lg">
+            <select name="select_table" onchange="this;this.form.submit()" class="p-2 border-2 rounded-lg">
                 <option value="cars" <?= $selected_table == 'cars' ? 'selected' : '' ?>>Таблица машин</option>
                 <option value="users" <?= $selected_table == 'users' ? 'selected' : '' ?>>Таблица пользователей</option>
             </select>
@@ -62,13 +62,11 @@ $form_action = ''
 
 <?php else: ?>
 
-    <br>
-    <div style="text-align: center;">
-        <?= $user->firstname ?>;
-        <br>
-        <?= $user->lastname ?>;
-    </div>
+    <? include '../ui/layout/header.php' ?>
 
+    <br>
+    <br>
+    <br>
     <? include '../ui/forms/car_user.php' ?>
 
 <?php endif; ?>

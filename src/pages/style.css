@@ -22,3 +22,18 @@
 * {
   font-family: Rubik;
 }
+
+.container {
+  width: 100%;
+  height: fit-content;
+  padding-left: 50px;
+  padding-right: 50px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
