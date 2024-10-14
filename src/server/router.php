@@ -11,7 +11,7 @@ class Router
     public static $routes = [
         '/user/login' => ['UserController', 'login'],
         '/user/signup' => ['UserController', 'signup'],
-        '/user/leave' => ['UserController', 'leave'],
+        '/user/logout' => ['UserController', 'logout'],
         '/user/users' => ['UserController', 'list'],
         '/user/update/car' => ['UserController', 'car_update'],
         '/car/add' => ['CarController', 'add'],

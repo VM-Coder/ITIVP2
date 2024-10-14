@@ -4,7 +4,7 @@ session_start();
 $car = $_SESSION['car'];
 ?>
 
-<form method="POST" action="user/update/car" class="flex flex-col gap-4 w-1/3 bg-white">
+<form method="POST" action="user/update/car" class="rounded-xl flex flex-col gap-4 w-1/2 bg-white inset-0 m-auto p-12 ">
     <?php if (!isset($car)) : ?>
         <h2>Автомобиль отсутствует</h2>
         <button type="submit" class="<?= $button_style ?>">Добавить автомобиль</button>

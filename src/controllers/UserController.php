@@ -65,8 +65,8 @@ class UserController
                 [
                     'Адрес почты недействителен',
                     'Пароль должен состоять из букв латинского алфавита, цифр, символов .#?!@$%^&*- и иметь длину от 8 до 32 символов',
-                    'Имя должно состоять из букв латинского или кириллического алфавитов, начинаться с заглавной буквы и иметь длину от 0 до 32 символов',
-                    'Фамилия должна состоять из букв латинского или кириллического алфавитов, начинаться с заглавной буквы и иметь длину от 0 до 32 символов'
+                    'Имя должно состоять из букв латинского или кириллического алфавитов, начинаться с заглавной буквы и иметь длину от 1 до 32 символов',
+                    'Фамилия должна состоять из букв латинского или кириллического алфавитов, начинаться с заглавной буквы и иметь длину от 1 до 32 символов'
                 ]
             );
 
@@ -98,6 +98,16 @@ class UserController
         } catch (Exception $ex) {
             $_SESSION['error'] = $ex->getMessage();
             header('location: ../registration', replace: false);
+        }
+    }
+    public static function logout()
+    {
+        try {
+            unset($_SESSION['user']);
+            header('location: ../authorization', false);
+        } catch (Exception $ex) {
+            $_SESSION['error'] = $ex->getMessage();
+            header('location: ../authorization', replace: false);
         }
     }
     public static function car_update()
@@ -139,14 +149,15 @@ class UserController
             header('location: ../../profile', false);
         }
     }
-  
-    public static function list() {
-        $result = User::all(); 
+
+    public static function list()
+    {
+        $result = User::all();
 
         if ($result['status']) {
-            $_SESSION['users'] = $result['data']; 
+            $_SESSION['users'] = $result['data'];
         } else {
-            $_SESSION['error'] = $result['data']; 
+            $_SESSION['error'] = $result['data'];
         }
-    } 
+    }
 }
