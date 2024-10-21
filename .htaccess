@@ -9,6 +9,7 @@ RewriteRule ^404$ src/pages/404.php
 
 RewriteRule ^authorization?$ src/pages/authorization.php
 RewriteRule ^registration?$ src/pages/registration.php
+RewriteRule ^admin?$ src/pages/admin.php
 RewriteRule ^profile?$ src/pages/profile.php
 RewriteRule ^main?$ src/pages/main.php
 

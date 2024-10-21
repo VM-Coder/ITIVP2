@@ -24,8 +24,9 @@
 }
 
 .container {
-  width: 100%;
-  height: fit-content;
+  max-width: 100% !important;
+  width: 100% !important;
+  height: 100%;
   padding-left: 50px;
   padding-right: 50px;
   box-sizing: border-box;

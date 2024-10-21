@@ -1,6 +1,6 @@
 <?php
 
-    session_start();
+session_start();
 
 ?>
 
@@ -14,23 +14,22 @@
     </thead>
 
     <tbody>
-        <?php 
-            if (!empty($_SESSION['cars'])){
-                foreach ($_SESSION['cars'] as $car){
-                    echo '
+        <?php
+        if (!empty($_SESSION['cars'])) {
+            foreach ($_SESSION['cars'] as $car) {
+                echo '
                     <tr class="bg-white">
                         <td class="border border-slate-300 px-4 py-2">' . htmlspecialchars($car->id) . '</td>
                         <td class="border border-slate-300 px-4 py-2">' . htmlspecialchars($car->class) . '</td>
                         <td class="border border-slate-300 px-4 py-2">' . htmlspecialchars($car->model) . '</td>
                     </tr>';
-                }
             }
-            else {
-                echo '
+        } else {
+            echo '
                 <tr>
                     <td colspan="3" class="text-center border border-slate-300 px-4 py-2">Нет данных для отображения</td>
                 </tr>';
-            }
+        }
         ?>
     </tbody>
-</tab>
+</table>

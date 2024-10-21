@@ -119,6 +119,37 @@ class Car extends Model
         ];
     }
 
+    public static function group($fields, $group_fields)
+    {
+        $data = Database::select(
+            static::$table,
+            null,
+            $fields,
+            null,
+            $group_fields
+        );
+
+        if (gettype($data) == 'string')
+            return [
+                'data' => $data,
+                'status' => false
+            ];
+
+        if ($data->num_rows > 0) {
+            $data = $data->fetch_all(MYSQLI_ASSOC);
+
+            return [
+                'data' => $data,
+                'status' => true
+            ];
+        }
+
+        return [
+            'data' => 'Автомобили не найдены',
+            'status' => false
+        ];
+    }
+
     public function save()
     {
         $values = [

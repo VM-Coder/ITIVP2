@@ -1,6 +1,6 @@
 <?php
 
-    session_start();
+session_start();
 
 ?>
 
@@ -15,24 +15,23 @@
     </thead>
 
     <tbody>
-        <?php 
-            if (!empty($_SESSION['users'])){
-                foreach ($_SESSION['users'] as $user){
-                    echo '
+        <?php
+        if (!empty($_SESSION['users'])) {
+            foreach ($_SESSION['users'] as $user) {
+                echo '
                     <tr class="bg-white">
                         <td class="border border-slate-300 px-4 py-2">' . htmlspecialchars($user->id) . '</td>
                         <td class="border border-slate-300 px-4 py-2">' . htmlspecialchars($user->email) . '</td>
                         <td class="border border-slate-300 px-4 py-2">' . htmlspecialchars($user->lastname) . '</td>
                         <td class="border border-slate-300 px-4 py-2">' . htmlspecialchars($user->firstname) . '</td>
                     </tr>';
-                }
             }
-            else {
-                echo '
+        } else {
+            echo '
                 <tr>
                     <td colspan="4" class="text-center border border-slate-300 px-4 py-2">Нет данных для отображения</td>
                 </tr>';
-            }
+        }
         ?>
     </tbody>
-</tab>
+</table>

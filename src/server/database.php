@@ -30,18 +30,21 @@ class Database
     }
     /**
      * @param string $table - таблица из которой выбираются элементы
+     * @param array $fields - выбираемые поля 
      * @param array|null $where - массив условий, которые объединяются оператором AND. Пример: ['id > 5', 'car_id BETWEEN 5 AND 10'] == '...WHERE id > 5 AND car_id BETWEEN 5 AND 10'
      * @param array|null $joins - массив join'ов, указанных в виде массивов вида ['table1', 'field1', 'table2', field2']. Пример: [['user', 'car_id', 'car', 'id']] == '...FROM user INNER JOIN car ON user.car_id = car.id
      * @param array|null $group_by - массив полей по которым ведётся группировка. Пример ['model', 'class'] == '...GROUP BY model, class'
      * @param array|null $order_by - массив полей по которым сортируется результирующий набор. Направление сортировки указывается вместе с полем. Пример ['id', 'firstname DESC'] == '...ORDER BY id, firstname DESC'
      */
-    public static function select(string $table, array $where = null, array $joins = null, array $group_by = null, array $order_by = null)
+    public static function select(string $table, array $where = null, array $fields = ['*'], array $joins = null, array $group_by = null, array $order_by = null)
     {
         try {
             if (!static::$connection->ping())
                 throw new Exception('Соединение потеряно');
 
-            $sql = 'SELECT * FROM ' . $table;
+            $field_list = implode(', ', $fields);
+
+            $sql = 'SELECT ' . $field_list . ' FROM ' . $table;
 
             $join = '';
 

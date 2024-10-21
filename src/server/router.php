@@ -18,6 +18,7 @@ class Router
         '/car/delete' => ['CarController', 'delete'],
         '/car/search' => ['CarController', 'search'],
         '/car/cars' => ['CarController', 'list'],
+        '/car/stats' => ['CarController', 'stats'],
     ];
 
     public static function resolve()

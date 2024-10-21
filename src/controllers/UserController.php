@@ -25,19 +25,26 @@ class UserController
 
             $_SESSION['user'] = $users['data'][0];
 
-            $car = Car::get($_SESSION['user']->car_id);
+            if ($_SESSION['user']->is_admin) {
+                CarController::stats();
+                CarController::list();
+                UserController::list();
 
-            if (!$car['status']) {
-                if ($car['data'] == 'Автомобиль не найден') {
-                    $_SESSION['car'] = null;
-                } else {
-                    throw new Exception($car['data']);
-                }
+                header('location: ../admin', false);
             } else {
-                $_SESSION['car'] = $car['data'];
-            }
+                $car = Car::get($_SESSION['user']->car_id);
 
-            header('location: ../profile', false);
+                if (!$car['status']) {
+                    if ($car['data'] == 'Автомобиль не найден') {
+                        $_SESSION['car'] = null;
+                    } else {
+                        throw new Exception($car['data']);
+                    }
+                } else {
+                    $_SESSION['car'] = $car['data'];
+                }
+                header('location: ../profile', false);
+            }
         } catch (Exception $ex) {
             $_SESSION['error'] = $ex->getMessage();
             header('location: ../authorization', false);

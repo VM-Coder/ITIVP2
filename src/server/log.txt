@@ -1,0 +1,16 @@
+POST /car/delete
+Cannot delete or update a parent row: a foreign key constraint fails (`traffic_control`.`user`, CONSTRAINT `user_ibfk_1` FOREIGN KEY (`car_id`) REFERENCES `car` (`id`))
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(178): mysqli->query('DELETE FROM car...')
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\models\Car.php(205): Database::delete('car', Array)
+#2 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\CarController.php(105): Car->destroy()
+#3 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(28): CarController::delete()
+#4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(35): Router::resolve()
+#5 {main}
+POST /car/delete
+Cannot delete or update a parent row: a foreign key constraint fails (`traffic_control`.`user`, CONSTRAINT `user_ibfk_1` FOREIGN KEY (`car_id`) REFERENCES `car` (`id`))
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(178): mysqli->query('DELETE FROM car...')
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\models\Car.php(205): Database::delete('car', Array)
+#2 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\CarController.php(105): Car->destroy()
+#3 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(28): CarController::delete()
+#4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(35): Router::resolve()
+#5 {main}
