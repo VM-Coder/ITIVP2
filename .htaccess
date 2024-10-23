@@ -20,6 +20,8 @@ RewriteRule ^user/signup?$ src/server/router.php
 
 RewriteRule ^user/logout?$ src/server/router.php
 RewriteRule ^user/update/car?$ src/server/router.php
+RewriteRule ^user/update/map?$ src/server/router.php
+RewriteRule ^user/update/traffic_light?$ src/server/router.php
 
 RewriteRule ^user/users?$ src/server/router.php
 

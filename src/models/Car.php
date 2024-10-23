@@ -8,14 +8,23 @@ class Car extends Model
     public int $id = 0;
     public string $class;
     public string $model;
-
+    public ?int $x = null;
+    public ?int $y = null;
     public function __construct() {}
-
     public static function get(int $primary_key)
     {
         $data = Database::select(
             static::$table,
-            ['id = ' . $primary_key]
+            [
+                'id = ' . $primary_key
+            ],
+            [
+                'id',
+                'class',
+                'model',
+                'ST_X(position) AS x',
+                'ST_Y(position) AS y'
+            ]
         );
 
         if (gettype($data) == 'string')
@@ -32,6 +41,9 @@ class Car extends Model
             $car->class = $data['class'];
             $car->model = $data['model'];
 
+            $car->x = $data['x'];
+            $car->y = $data['y'];
+
             return [
                 'data' => $car,
                 'status' => true
@@ -43,12 +55,18 @@ class Car extends Model
             'status' => false
         ];
     }
-
     public static function where(array $conditions)
     {
         $data = Database::select(
             static::$table,
-            $conditions
+            $conditions,
+            [
+                'id',
+                'class',
+                'model',
+                'ST_X(position) AS x',
+                'ST_Y(position) AS y'
+            ]
         );
 
         if (gettype($data) == 'string')
@@ -67,6 +85,9 @@ class Car extends Model
                 $car->class = $row['class'];
                 $car->model = $row['model'];
 
+                $car->x = $row['x'];
+                $car->y = $row['y'];
+
                 array_push($cars, $car);
             }
 
@@ -81,11 +102,18 @@ class Car extends Model
             'status' => false
         ];
     }
-
     public static function all()
     {
         $data = Database::select(
-            static::$table
+            static::$table,
+            null,
+            [
+                'id',
+                'class',
+                'model',
+                'ST_X(position) AS x',
+                'ST_Y(position) AS y'
+            ]
         );
 
         if (gettype($data) == 'string')
@@ -104,6 +132,9 @@ class Car extends Model
                 $car->class = $row['class'];
                 $car->model = $row['model'];
 
+                $car->x = $row['x'];
+                $car->y = $row['y'];
+
                 array_push($cars, $car);
             }
 
@@ -118,7 +149,6 @@ class Car extends Model
             'status' => false
         ];
     }
-
     public static function group($fields, $group_fields)
     {
         $data = Database::select(
@@ -149,12 +179,12 @@ class Car extends Model
             'status' => false
         ];
     }
-
     public function save()
     {
         $values = [
             'class' => '\'' . $this->class . '\'',
-            'model' => '\'' . $this->model . '\''
+            'model' => '\'' . $this->model . '\'',
+            'position' => ($this->x && $this->y ? 'ST_GeomFromText(\'POINT(' . $this->x . ' ' . $this->y . ')\')' : 'NULL')
         ];
 
         if (static::get($this->id)['data'] == 'Автомобиль не найден') {

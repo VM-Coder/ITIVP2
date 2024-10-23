@@ -1,6 +1,9 @@
 <?php
 
 require_once '../models/User.php';
+require_once '../models/Point.php';
+require_once '../models/Road.php';
+require_once '../models/TrafficLight.php';
 
 session_start(); //используется во всех файлах, где необходим доступ к переменной $_SESSION
 
@@ -25,24 +28,63 @@ class UserController
 
             $_SESSION['user'] = $users['data'][0];
 
-            if ($_SESSION['user']->is_admin) {
+            if ($_SESSION['user']->role == 'A') {
                 CarController::stats();
                 CarController::list();
                 UserController::list();
 
                 header('location: ../admin', false);
             } else {
-                $car = Car::get($_SESSION['user']->car_id);
+                $points = Point::all();
+                $roads = Road::all();
+                $traffic_lights = TrafficLight::all();
 
-                if (!$car['status']) {
-                    if ($car['data'] == 'Автомобиль не найден') {
-                        $_SESSION['car'] = null;
+                if ($points['status'] && $roads['status'] && $traffic_lights['status']) {
+                    $_SESSION['points'] = $points['data'];
+                    $_SESSION['roads'] = $roads['data'];
+                    $_SESSION['traffic_lights'] = $traffic_lights['data'];
+                } else
+                    throw new Error("Ошибка при получении карты");
+
+                $cars = Car::all();
+
+                if ($cars['status'] && $cars['status']) {
+                    $_SESSION['cars'] = $cars['data'];
+                } else
+                    throw new Error("Ошибка при получении автомобилей");
+
+                if ($_SESSION['user']->role == 'U') {
+                    if ($_SESSION['user']->car_id) {
+                        $car = Car::get($_SESSION['user']->car_id);
+
+                        if (!$car['status']) {
+                            if ($car['data'] == 'Автомобиль не найден') {
+                                $_SESSION['car'] = null;
+                            } else {
+                                throw new Exception($car['data']);
+                            }
+                        } else {
+                            $_SESSION['car'] = $car['data'];
+                        }
                     } else {
-                        throw new Exception($car['data']);
+                        $_SESSION['car'] = null;
                     }
                 } else {
-                    $_SESSION['car'] = $car['data'];
+                    $current_lights = TrafficLight::where([
+                        'position = ' . $_SESSION['user']->point_id
+                    ]);
+
+                    if (!$current_lights['status']) {
+                        if ($current_lights['data'] == 'Светофоры не найдены') {
+                            $_SESSION['current_lights'] = null;
+                        } else {
+                            throw new Exception($current_lights['data']);
+                        }
+                    } else {
+                        $_SESSION['current_lights'] = $current_lights['data'];
+                    }
                 }
+
                 header('location: ../profile', false);
             }
         } catch (Exception $ex) {
@@ -97,7 +139,7 @@ class UserController
             $user->password = $_POST['password'];
             $user->firstname = $_POST['firstname'];
             $user->lastname = $_POST['lastname'];
-            $user->is_admin = false;
+            $user->role = 'U';
 
             $user->save();
 
@@ -122,39 +164,143 @@ class UserController
         try {
             $user = $_SESSION['user'];
 
-            $car = Car::get($user->car_id);
+            if ($user->car_id) {
+                $car = Car::get($user->car_id);
 
-            if (!$car['status']) {
-                if ($car['data'] == 'Автомобиль не найден') {
-                    $car = new Car();
+                if (!$car['status']) {
+                    if ($car['data'] == 'Автомобиль не найден') {
+                        $car = new Car();
 
-                    $car->model = '';
-                    $car->class = '';
+                        $car->model = '';
+                        $car->class = '';
 
-                    $car->save();
+                        $car->save();
 
-                    $user->car_id = $car->id;
-                    $user->save();
+                        $user->car_id = $car->id;
+                        $user->save();
 
-                    $_SESSION['user'] = $user;
-                    $_SESSION['car'] = $car;
+                        $_SESSION['user'] = $user;
+                        $_SESSION['car'] = $car;
+                    } else {
+                        throw new Exception($car['data']);
+                    }
                 } else {
-                    throw new Exception($car['data']);
+                    $validator = new Validator(
+                        [
+                            $_POST['class'],
+                            $_POST['model'],
+                            $_POST['position']
+                        ],
+                        [
+                            '/^[A-Z]$/',
+                            '/^[A-Za-z\s\d]{1,32}$/',
+                            '/^\-?\d+\s\-?\d+$/'
+                        ],
+                        [
+                            'Класс машины должен состоять из одной заглавной буквы (A-Z).',
+                            'Модель машины может содержать только латинские буквы, цифры и пробелы.',
+                            'Координаты заданы неверно'
+                        ]
+                    );
+
+                    if (!$validator->validate())
+                        throw new Exception($validator->last_message);
+
+                    $car['data']->model = $_POST['model'];
+                    $car['data']->class = $_POST['class'];
+
+                    $coords = explode(" ", $_POST['position']);
+
+                    $car['data']->x = $coords[0];
+                    $car['data']->y = $coords[1];
+
+                    $car['data']->save();
+
+                    $_SESSION['car'] = $car['data'];
                 }
             } else {
-                $car['data']->model = $_POST['model'];
-                $car['data']->class = $_POST['class'];
+                $car = new Car();
 
-                $car['data']->save();
+                $car->model = '';
+                $car->class = '';
 
-                $_SESSION['car'] = $car['data'];
+                $car->save();
+
+
+                $user->car_id = $car->id;
+                $user->save();
+
+                $_SESSION['user'] = $user;
+                $_SESSION['car'] = $car;
             }
-
-            header('location: ../../profile', false);
         } catch (Exception $ex) {
             $_SESSION['error'] = $ex->getMessage();
-            header('location: ../../profile', false);
         }
+
+        header('location: ../../profile', false);
+    }
+
+    public static function map_update()
+    {
+        try {
+            $points = Point::all();
+            $roads = Road::all();
+            $traffic_lights = TrafficLight::all();
+
+            if ($points['status'] && $roads['status'] && $traffic_lights['status']) {
+                $_SESSION['points'] = $points['data'];
+                $_SESSION['roads'] = $roads['data'];
+                $_SESSION['traffic_lights'] = $traffic_lights['data'];
+
+                $cars = Car::all();
+
+                if ($cars['status'] && $cars['status']) {
+                    $_SESSION['cars'] = $cars['data'];
+                } else
+                    throw new Error("Ошибка при получении автомобилей");
+            } else
+                throw new Error("Ошибка при получении карты");
+        } catch (Exception $ex) {
+            $_SESSION['error'] = $ex->getMessage();
+        }
+
+        header('location: ../../profile', false);
+    }
+
+    public static function tl_update()
+    {
+        try {
+            $traffic_light = TrafficLight::get($_POST['id']);
+
+            if ($traffic_light['status']) {
+                $new_traffic_light = new TrafficLight();
+
+                $new_traffic_light->id = $_POST['id'];
+                $new_traffic_light->direction = $traffic_light['data']->direction;
+                $new_traffic_light->position = $traffic_light['data']->position;
+                $new_traffic_light->color = $_POST['color'];
+
+                $new_traffic_light->save();
+
+                $current_lights = TrafficLight::where([
+                    'position = ' . $_SESSION['user']->point_id
+                ]);
+
+                if (!$current_lights['status']) {
+                    if ($current_lights['data'] == 'Светофоры не найдены') {
+                        $_SESSION['current_lights'] = null;
+                    } else {
+                        throw new Exception($current_lights['data']);
+                    }
+                } else {
+                    $_SESSION['current_lights'] = $current_lights['data'];
+                }
+            }
+        } catch (Exception $ex) {
+            $_SESSION['error'] = $ex->getMessage();
+        }
+
+        header('location: ../../profile', false);
     }
 
     public static function list()

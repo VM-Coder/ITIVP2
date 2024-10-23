@@ -11,7 +11,7 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
-if (!$_SESSION['user']->is_admin) {
+if ($_SESSION['user']->role != 'A') {
     header('location: ../authorization', replace: false);
     $_SESSION['error'] = 'Вы не являетесь администратором';
     exit;

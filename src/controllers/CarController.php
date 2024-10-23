@@ -44,7 +44,6 @@ class CarController
 
         header('location: ../car/search', false);
     }
-
     public static function search()
     {
         try {

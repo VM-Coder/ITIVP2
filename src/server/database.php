@@ -135,7 +135,7 @@ class Database
             $pairs = [];
 
             foreach ($values as $key => $value) {
-                array_push($pairs, $key . ' = ' . $value);
+                array_push($pairs, $key . ' = ' . (is_null($value) ? 'NULL' : $value));
             }
 
             $fields = implode(', ', $pairs);

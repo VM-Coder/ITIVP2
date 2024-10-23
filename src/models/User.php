@@ -10,8 +10,9 @@ class User extends Model
     public string $password = '';
     public string $firstname = '';
     public string $lastname;
-    public bool $is_admin;
-    public int $car_id;
+    public string $role = 'U';
+    public ?int $car_id = null;
+    public ?int $point_id = null;
     public function __construct() {}
     public static function get(int $primary_key)
     {
@@ -38,8 +39,9 @@ class User extends Model
             $user->password = $data['password'];
             $user->firstname = $data['firstname'];
             $user->lastname = $data['lastname'];
-            $user->is_admin = $data['is_admin'];
-            $user->car_id = $data['car_id'] == null ? 0 : $data['car_id'];
+            $user->role = $data['role'];
+            $user->car_id = $data['car_id'];
+            $user->point_id = $data['point_id'];
 
             return [
                 'data' => $user,
@@ -78,8 +80,9 @@ class User extends Model
                 $user->password = $row['password'];
                 $user->firstname = $row['firstname'];
                 $user->lastname = $row['lastname'];
-                $user->is_admin = $row['is_admin'];
-                $user->car_id = $row['car_id'] == null ? 0 : $row['car_id'];
+                $user->role = $row['role'];
+                $user->car_id = $row['car_id'];
+                $user->point_id = $row['point_id'];
 
                 array_push($users, $user);
             }
@@ -120,8 +123,9 @@ class User extends Model
                 $user->password = $row['password'];
                 $user->firstname = $row['firstname'];
                 $user->lastname = $row['lastname'];
-                $user->is_admin = $row['is_admin'];
-                $user->car_id = $row['car_id'] == null ? 0 : $row['car_id'];
+                $user->role = $row['is_admin'];
+                $user->car_id = $row['car_id'];
+                $user->point_id = $row['point_id'];
 
                 array_push($users, $user);
             }
@@ -147,7 +151,7 @@ class User extends Model
                     'password' => '\'' . sha1($this->password) . '\'',
                     'firstname' => '\'' . $this->firstname . '\'',
                     'lastname' => '\'' . $this->lastname . '\'',
-                    'is_admin' => $this->is_admin ? 1 : 0
+                    'role' => '\'' . $this->role . '\''
                 ]
             );
 
@@ -171,8 +175,9 @@ class User extends Model
                     'password' => '\'' . $this->password . '\'',
                     'firstname' => '\'' . $this->firstname . '\'',
                     'lastname' => '\'' . $this->lastname . '\'',
-                    'is_admin' => $this->is_admin ? 1 : 0,
-                    'car_id' => $this->car_id
+                    'role' => '\'' . $this->role . '\'',
+                    'car_id' => $this->car_id,
+                    'point_id' => $this->point_id
                 ],
                 [
                     'id = ' . $this->id
