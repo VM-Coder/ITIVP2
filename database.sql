@@ -127,5 +127,3 @@ UPDATE `user` SET `point_id` = '3' WHERE `user`.`id` = 12;
 UPDATE `user` SET `point_id` = '4' WHERE `user`.`id` = 13;
 UPDATE `user` SET `point_id` = '5' WHERE `user`.`id` = 14;
 UPDATE `user` SET `point_id` = '7' WHERE `user`.`id` = 15;
-
-UPDATE `car`
