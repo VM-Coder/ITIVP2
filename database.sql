@@ -127,3 +127,27 @@ UPDATE `user` SET `point_id` = '3' WHERE `user`.`id` = 12;
 UPDATE `user` SET `point_id` = '4' WHERE `user`.`id` = 13;
 UPDATE `user` SET `point_id` = '5' WHERE `user`.`id` = 14;
 UPDATE `user` SET `point_id` = '7' WHERE `user`.`id` = 15;
+
+-- Lab3
+
+UPDATE car 
+SET position = ST_GeomFromText('POINT(340 340)') 
+WHERE id = 18;
+
+ALTER TABLE car
+ADD COLUMN movement_count INT DEFAULT 0;
+
+DELIMITER //
+
+CREATE TRIGGER update_movement_count
+BEFORE UPDATE ON car
+FOR EACH ROW
+BEGIN
+    IF ST_Equals(OLD.position, NEW.position) = 0 THEN
+        SET NEW.movement_count = OLD.movement_count + 1;
+    END IF;
+END;
+
+//
+
+DELIMITER ;

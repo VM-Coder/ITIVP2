@@ -159,26 +159,23 @@ class UserController
             header('location: ../authorization', replace: false);
         }
     }
-    public static function car_update()
-    {
+    public static function car_update() {
         try {
             $user = $_SESSION['user'];
-
+    
             if ($user->car_id) {
                 $car = Car::get($user->car_id);
-
+    
                 if (!$car['status']) {
                     if ($car['data'] == 'Автомобиль не найден') {
                         $car = new Car();
-
                         $car->model = '';
                         $car->class = '';
-
                         $car->save();
-
+    
                         $user->car_id = $car->id;
                         $user->save();
-
+    
                         $_SESSION['user'] = $user;
                         $_SESSION['car'] = $car;
                     } else {
@@ -202,43 +199,55 @@ class UserController
                             'Координаты заданы неверно'
                         ]
                     );
-
+    
                     if (!$validator->validate())
                         throw new Exception($validator->last_message);
-
+    
                     $car['data']->model = $_POST['model'];
                     $car['data']->class = $_POST['class'];
-
+    
                     $coords = explode(" ", $_POST['position']);
+                    $newX = (int)$coords[0];
+                    $newY = (int)$coords[1];
 
-                    $car['data']->x = $coords[0];
-                    $car['data']->y = $coords[1];
+                    $allCars = Car::all();
+    
+                    foreach ($allCars['data'] as $otherCar) {
+                        if ($otherCar->id == $user->car_id) {
+                            continue;
+                        }
+    
+                        $distance = sqrt(pow($newX - $otherCar->x, 2) + pow($newY - $otherCar->y, 2));
+    
+                        if ($distance < 21) {
+                            throw new Exception("Слишком близко к другой машине.");
+                        }
+                    }
 
+                    $car['data']->x = $newX;
+                    $car['data']->y = $newY;
                     $car['data']->save();
-
+    
                     $_SESSION['car'] = $car['data'];
                 }
             } else {
                 $car = new Car();
-
                 $car->model = '';
                 $car->class = '';
-
                 $car->save();
-
-
+    
                 $user->car_id = $car->id;
                 $user->save();
-
+    
                 $_SESSION['user'] = $user;
                 $_SESSION['car'] = $car;
             }
         } catch (Exception $ex) {
             $_SESSION['error'] = $ex->getMessage();
         }
-
+    
         header('location: ../../profile', false);
-    }
+    }    
 
     public static function map_update()
     {
