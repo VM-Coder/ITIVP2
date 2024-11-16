@@ -23,7 +23,6 @@ class Router
         '/car/cars' => ['CarController', 'list'],
         '/car/stats' => ['CarController', 'stats'],
         '/road/roads' => ['RoadController', 'list'],
-        '/road/stats' => ['RoadController', 'stats'],
     ];
 
     public static function resolve()

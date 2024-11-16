@@ -16,8 +16,8 @@ session_start();
 
     <tbody>
         <?php
-        if (!empty($_SESSION['roads'])) {
-            foreach ($_SESSION['roads'] as $road) {
+        if (!empty($_SESSION['sorted_roads'])) {
+            foreach ($_SESSION['sorted_roads'] as $road) {
                 echo '
                     <tr class="bg-white">
                         <td class="border border-slate-300 px-4 py-2">' . htmlspecialchars($road->id) . '</td>

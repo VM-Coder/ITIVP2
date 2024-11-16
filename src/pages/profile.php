@@ -40,7 +40,6 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
     };
 
     window.onload = () => {
-        let roadCoefficients = {};
         ctx = document.querySelector('canvas').getContext('2d');
 
         ctx.fillStyle = 'white';
@@ -191,6 +190,7 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
 
     </canvas>
 </div>
+
 
 <?php
 

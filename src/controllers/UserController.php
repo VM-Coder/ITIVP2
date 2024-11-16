@@ -4,8 +4,6 @@ require_once '../models/User.php';
 require_once '../models/Point.php';
 require_once '../models/Road.php';
 require_once '../models/TrafficLight.php';
-require_once '../controllers/RoadController.php';
-require_once '../controllers/CarController.php';
 
 session_start();
 
@@ -34,7 +32,10 @@ class UserController
                 CarController::stats();
                 CarController::list();
                 UserController::list();
-                RoadController::list();
+                $sorted_roads = Road::allCoefOrder();
+                if ($sorted_roads['status']) {
+                    $_SESSION['sorted_roads'] = $sorted_roads['data'];}
+
                 header('location: ../admin', false);
             } else {
                 $points = Point::all();
@@ -161,24 +162,23 @@ class UserController
             header('location: ../authorization', replace: false);
         }
     }
-    public static function car_update()
-    {
+    public static function car_update() {
         try {
             $user = $_SESSION['user'];
-
+    
             if ($user->car_id) {
                 $car = Car::get($user->car_id);
-
+    
                 if (!$car['status']) {
                     if ($car['data'] == 'Автомобиль не найден') {
                         $car = new Car();
                         $car->model = '';
                         $car->class = '';
                         $car->save();
-
+    
                         $user->car_id = $car->id;
                         $user->save();
-
+    
                         $_SESSION['user'] = $user;
                         $_SESSION['car'] = $car;
                     } else {
@@ -202,26 +202,26 @@ class UserController
                             'Координаты заданы неверно'
                         ]
                     );
-
+    
                     if (!$validator->validate())
                         throw new Exception($validator->last_message);
-
+    
                     $car['data']->model = $_POST['model'];
                     $car['data']->class = $_POST['class'];
-
+    
                     $coords = explode(" ", $_POST['position']);
-                    $newX = (int) $coords[0];
-                    $newY = (int) $coords[1];
+                    $newX = (int)$coords[0];
+                    $newY = (int)$coords[1];
 
                     $allCars = Car::all();
-
+    
                     foreach ($allCars['data'] as $otherCar) {
                         if ($otherCar->id == $user->car_id) {
                             continue;
                         }
-
+    
                         $distance = sqrt(pow($newX - $otherCar->x, 2) + pow($newY - $otherCar->y, 2));
-
+    
                         if ($distance < 21) {
                             throw new Exception("Слишком близко к другой машине.");
                         }
@@ -230,7 +230,7 @@ class UserController
                     $car['data']->x = $newX;
                     $car['data']->y = $newY;
                     $car['data']->save();
-
+    
                     $_SESSION['car'] = $car['data'];
                 }
             } else {
@@ -238,19 +238,19 @@ class UserController
                 $car->model = '';
                 $car->class = '';
                 $car->save();
-
+    
                 $user->car_id = $car->id;
                 $user->save();
-
+    
                 $_SESSION['user'] = $user;
                 $_SESSION['car'] = $car;
             }
         } catch (Exception $ex) {
             $_SESSION['error'] = $ex->getMessage();
         }
-
+    
         header('location: ../../profile', false);
-    }
+    }    
 
     public static function map_update()
     {
@@ -273,16 +273,9 @@ class UserController
                         $start = $points['data'][$road->start_point - 1];
                         $end = $points['data'][$road->end_point - 1];
 
-                        $dir = [
-                            'x' => ($end->x - $start->x) / sqrt(pow($end->x - $start->x, 2) + pow($end->y - $start->y, 2)),
-                            'y' => ($end->y - $start->y) / sqrt(pow($end->x - $start->x, 2) + pow($end->y - $start->y, 2)),
-
-                        ];
-
                         $traffic_light = null;
                         foreach ($traffic_lights['data'] as $light) {
                             if ($light->direction == $road->id) {
-
                                 $traffic_light = $light;
                                 break;
                             }

@@ -51,7 +51,7 @@ class Road extends Model
         }
 
         return [
-            'data' => 'Автомобиль не найден',
+            'data' => 'Дорога не найдена',
             'status' => false
         ];
     }
@@ -59,17 +59,7 @@ class Road extends Model
     public static function all()
     {
         $data = Database::select(
-            static::$table,
-            null,
-            [
-                'id',
-                'start_point',
-                'end_point',
-                'coefficient'
-            ],
-            null,
-            null,
-            ['coefficient DESC']
+            static::$table
         );
 
         if (gettype($data) == 'string')
@@ -103,16 +93,63 @@ class Road extends Model
             'status' => false
         ];
     }
+
+    public static function allCoefOrder()
+    {
+        $data = Database::select(
+            static::$table,
+            null,
+            [
+                'id',
+                'start_point',
+                'end_point',
+                'coefficient'
+            ],
+            null,
+            null,
+            ['coefficient ASC']
+        );
+
+        if (gettype($data) == 'string')
+            return [
+                'data' => $data,
+                'status' => false
+            ];
+
+        if ($data->num_rows > 0) {
+            $data = $data->fetch_all(MYSQLI_ASSOC);
+
+            $sorted_roads = [];
+            foreach ($data as $row) {
+                $road = new Road();
+                $road->id = $row['id'];
+                $road->start_point = $row['start_point'];
+                $road->end_point = $row['end_point'];
+                $road->coefficient = $row['coefficient'];
+
+                array_push($sorted_roads, $road);
+            }
+
+            return [
+                'data' => $sorted_roads,
+                'status' => true
+            ];
+        }
+
+        return [
+            'data' => 'Дороги не найдены',
+            'status' => false
+        ];
+    }
+
     public static function updateCoefficient(int $roadId, float $newCoefficient)
     {
-        // Обновляем коэффициент для указанной дороги по ее ID
         $result = Database::update(
             'road',
             ['coefficient' => $newCoefficient],
             ['id = ' . $roadId]
         );
 
-        // Проверка типа результата обновления
         if (gettype($result) == 'string') {
             return [
                 'data' => $result,
@@ -125,5 +162,4 @@ class Road extends Model
             'status' => true
         ];
     }
-
 }
