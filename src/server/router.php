@@ -2,6 +2,7 @@
 
 require_once '../controllers/UserController.php';
 require_once '../controllers/CarController.php';
+require_once '../controllers/RoadController.php';
 require_once './database.php';
 
 Database::connect();
@@ -21,6 +22,8 @@ class Router
         '/car/search' => ['CarController', 'search'],
         '/car/cars' => ['CarController', 'list'],
         '/car/stats' => ['CarController', 'stats'],
+        '/road/roads' => ['RoadController', 'list'],
+        '/road/stats' => ['RoadController', 'stats'],
     ];
 
     public static function resolve()

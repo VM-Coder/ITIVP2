@@ -2,6 +2,7 @@
 
 require_once '../models/User.php';
 require_once '../models/Car.php';
+require_once '../models/Road.php';
 
 session_start();
 
@@ -39,16 +40,18 @@ body_top();
         <details class="open:bg-gray-500">
             <summary class="p-4 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300">Таблицы</summary>
             <ul>
-                <li><button class="p-4 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300"
+                <li><button class="p-2 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300"
                         onclick="showBlock('#table_cars')">Автомобили</button></li>
-                <li><button class="p-4 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300"
+                <li><button class="p-2 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300"
+                        onclick="showBlock('#table_roads')">Дороги</button></li>
+                <li><button class="p-2 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300"
                         onclick="showBlock('#table_users')">Пользователи</button></li>
             </ul>
         </details>
         <details class="open:bg-gray-500">
             <summary class="p-4 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300">Статистика</summary>
             <ul>
-                <li><button class="p-4 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300"
+                <li><button class="p-2 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300"
                         onclick="showBlock('#stats_cars')">Автомобили</button></li>
             </ul>
         </details>
@@ -79,6 +82,15 @@ body_top();
                 <div class="mt-8">
                     <h2 class="font-bold text-slate-700 text-xl text-center">Таблица машин</h2>
                     <?php include '../ui/table/table_cars.php'; ?>
+                </div>
+            </div>
+        </section>
+
+        <section id="table_roads" class="content-block hidden">
+            <div class="mt-12">
+                <div class="mt-8">
+                    <h2 class="font-bold text-slate-700 text-xl text-center">Таблица дорог</h2>
+                    <?php include '../ui/table/table_roads.php'; ?>
                 </div>
             </div>
         </section>
@@ -145,8 +157,6 @@ body_top();
                     ?>
                 </table>
             <?php endif; ?>
-
-
         </section>
     </div>
 </div>

@@ -151,3 +151,5 @@ END;
 //
 
 DELIMITER ;
+
+ALTER TABLE road ADD COLUMN coefficient FLOAT DEFAULT 0;
