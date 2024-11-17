@@ -34,6 +34,12 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
     let cars = <?= json_encode($_SESSION['cars']) ?>;
     let traffic_lights = <?= json_encode($_SESSION['traffic_lights']) ?>;
 
+    let current_lights = <?= isset($_SESSION['current_lights']) ? json_encode($_SESSION['current_lights']) : json_encode([]) ?>;
+
+    let current_lights_ids = current_lights.map(x => x.id);
+
+    let current_car = <?= isset($_SESSION['car']) ? json_encode($_SESSION['car']) : json_encode([]) ?>;
+
     let center = {
         x: 512,
         y: 256
@@ -78,8 +84,14 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
 
         ctx.fillStyle = 'royalblue';
         for (let car of cars) {
+            if (current_car)
+                if (current_car.x == car.x && current_car.y == car.y)
+                    ctx.fillStyle = 'gold'
+
             if (car.x && car.y)
                 ctx.fillRect(center.x + car.x - 10, center.y + car.y - 10, 20, 20);
+
+            ctx.fillStyle = 'royalblue';
         }
 
         for (let traffic_light of traffic_lights) {
@@ -99,6 +111,14 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
             };
 
             ctx.fillRect(center.x + start.x + 15 * dir.x - 5, center.y + start.y + 15 * dir.y - 5, 10, 10);
+
+            if (current_lights_ids.includes(traffic_light.id)) {
+                ctx.fillStyle = 'white';
+
+                let dx = traffic_light.id > 9 ? 5 : 3
+
+                ctx.fillText(traffic_light.id, center.x + start.x + 15 * dir.x - dx, center.y + start.y + 15 * dir.y + 3);
+            }
         }
     }
 </script>

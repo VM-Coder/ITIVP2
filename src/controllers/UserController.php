@@ -214,6 +214,22 @@ class UserController
                     $car['data']->x = $coords[0];
                     $car['data']->y = $coords[1];
 
+
+                    if (isset($_FILES['car_image'])) {
+                        $info = pathinfo($_FILES['car_image']['name']);
+                        $ext = $info['extension'];
+
+                        if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png') {
+                            $car['data']->image = $_FILES['car_image']['name'];
+                            if (move_uploaded_file($_FILES['car_image']['tmp_name'], '../uploads/' . $_FILES['car_image']['name']))
+                                $_SESSION['success'] = 'Изображение загружено';
+                            else
+                                $_SESSION['error'] = 'Ошибка загрузки';
+                        } else {
+                            $_SESSION['error'] = 'Недопустимый формат файла';
+                        }
+                    }
+
                     $car['data']->save();
 
                     $_SESSION['car'] = $car['data'];

@@ -10,6 +10,7 @@ class Car extends Model
     public string $model;
     public ?int $x = null;
     public ?int $y = null;
+    public ?string $image = null;
     public function __construct() {}
     public static function get(int $primary_key)
     {
@@ -23,7 +24,8 @@ class Car extends Model
                 'class',
                 'model',
                 'ST_X(position) AS x',
-                'ST_Y(position) AS y'
+                'ST_Y(position) AS y',
+                'image'
             ]
         );
 
@@ -43,6 +45,8 @@ class Car extends Model
 
             $car->x = $data['x'];
             $car->y = $data['y'];
+
+            $car->image = $data['image'];
 
             return [
                 'data' => $car,
@@ -65,7 +69,8 @@ class Car extends Model
                 'class',
                 'model',
                 'ST_X(position) AS x',
-                'ST_Y(position) AS y'
+                'ST_Y(position) AS y',
+                'image'
             ]
         );
 
@@ -87,6 +92,8 @@ class Car extends Model
 
                 $car->x = $row['x'];
                 $car->y = $row['y'];
+
+                $car->image = $data['image'];
 
                 array_push($cars, $car);
             }
@@ -112,7 +119,8 @@ class Car extends Model
                 'class',
                 'model',
                 'ST_X(position) AS x',
-                'ST_Y(position) AS y'
+                'ST_Y(position) AS y',
+                'image'
             ]
         );
 
@@ -134,6 +142,8 @@ class Car extends Model
 
                 $car->x = $row['x'];
                 $car->y = $row['y'];
+
+                $car->image = $data['image'];
 
                 array_push($cars, $car);
             }
@@ -184,7 +194,8 @@ class Car extends Model
         $values = [
             'class' => '\'' . $this->class . '\'',
             'model' => '\'' . $this->model . '\'',
-            'position' => ($this->x && $this->y ? 'ST_GeomFromText(\'POINT(' . $this->x . ' ' . $this->y . ')\')' : 'NULL')
+            'position' => ($this->x && $this->y ? 'ST_GeomFromText(\'POINT(' . $this->x . ' ' . $this->y . ')\')' : 'NULL'),
+            'image' => ($this->image ? '\'' . $this->image . '\'' : 'NULL')
         ];
 
         if (static::get($this->id)['data'] == 'Автомобиль не найден') {

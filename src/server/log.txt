@@ -6,3 +6,40 @@ You have an error in your SQL syntax; check the manual that corresponds to your 
 #3 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(30): UserController::car_update()
 #4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(37): Router::resolve()
 #5 {main}
+POST /user/update/car
+Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(19): mysqli_connect('127.127.126.26', 'root', '', 'traffic_control', 3306)
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(7): Database::connect()
+#2 {main}
+POST /user/update/traffic_light
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM t...')
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\models\TrafficLight.php(56): Database::select('traffic_light', Array)
+#2 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\UserController.php(286): TrafficLight::where(Array)
+#3 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(30): UserController::tl_update()
+#4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(37): Router::resolve()
+#5 {main}
+POST /user/update/car
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'jpg WHERE id = 11' at line 1
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(150): mysqli->query('UPDATE car SET ...')
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\models\Car.php(224): Database::update('car', Array, Array)
+#2 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\UserController.php(231): Car->save()
+#3 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(30): UserController::car_update()
+#4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(37): Router::resolve()
+#5 {main}
+POST /user/update/car
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'jpg WHERE id = 11' at line 1
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(150): mysqli->query('UPDATE car SET ...')
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\models\Car.php(224): Database::update('car', Array, Array)
+#2 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\UserController.php(231): Car->save()
+#3 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(30): UserController::car_update()
+#4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(37): Router::resolve()
+#5 {main}
+POST /user/update/car
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'jpg WHERE id = 11' at line 1
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(150): mysqli->query('UPDATE car SET ...')
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\models\Car.php(224): Database::update('car', Array, Array)
+#2 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\UserController.php(231): Car->save()
+#3 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(30): UserController::car_update()
+#4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(37): Router::resolve()
+#5 {main}
