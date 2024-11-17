@@ -11,6 +11,7 @@ class Car extends Model
     public ?int $x = null;
     public ?int $y = null;
     public ?string $image = null;
+    public float $movement_count = 0;
     public function __construct() {}
     public static function get(int $primary_key)
     {
