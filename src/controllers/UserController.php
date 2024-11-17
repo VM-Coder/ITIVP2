@@ -5,7 +5,7 @@ require_once '../models/Point.php';
 require_once '../models/Road.php';
 require_once '../models/TrafficLight.php';
 
-session_start(); //используется во всех файлах, где необходим доступ к переменной $_SESSION
+session_start();
 
 require_once '../server/validator.php';
 
@@ -32,6 +32,11 @@ class UserController
                 CarController::stats();
                 CarController::list();
                 UserController::list();
+
+                $sorted_roads = Road::allCoefOrder();
+                if ($sorted_roads['status']) {
+                    $_SESSION['sorted_roads'] = $sorted_roads['data'];
+                }
 
                 header('location: ../admin', false);
             } else {
@@ -170,10 +175,8 @@ class UserController
                 if (!$car['status']) {
                     if ($car['data'] == 'Автомобиль не найден') {
                         $car = new Car();
-
                         $car->model = '';
                         $car->class = '';
-
                         $car->save();
 
                         $user->car_id = $car->id;
@@ -210,9 +213,25 @@ class UserController
                     $car['data']->class = $_POST['class'];
 
                     $coords = explode(" ", $_POST['position']);
+                    $newX = (int)$coords[0];
+                    $newY = (int)$coords[1];
 
-                    $car['data']->x = $coords[0];
-                    $car['data']->y = $coords[1];
+                    $car['data']->x = $newX;
+                    $car['data']->y = $newY;
+
+                    $allCars = Car::all();
+
+                    foreach ($allCars['data'] as $otherCar) {
+                        if ($otherCar->id == $user->car_id) {
+                            continue;
+                        }
+
+                        $distance = sqrt(pow($newX - $otherCar->x, 2) + pow($newY - $otherCar->y, 2));
+
+                        if ($distance < 21) {
+                            throw new Exception("Слишком близко к другой машине.");
+                        }
+                    }
 
 
                     if (isset($_FILES['car_image'])) {
@@ -230,18 +249,16 @@ class UserController
                         }
                     }
 
+
                     $car['data']->save();
 
                     $_SESSION['car'] = $car['data'];
                 }
             } else {
                 $car = new Car();
-
                 $car->model = '';
                 $car->class = '';
-
                 $car->save();
-
 
                 $user->car_id = $car->id;
                 $user->save();
@@ -270,18 +287,67 @@ class UserController
 
                 $cars = Car::all();
 
-                if ($cars['status'] && $cars['status']) {
+                if ($cars['status']) {
                     $_SESSION['cars'] = $cars['data'];
-                } else
+
+                    foreach ($roads['data'] as &$road) {
+                        $start = $points['data'][$road->start_point - 1];
+                        $end = $points['data'][$road->end_point - 1];
+
+                        $traffic_light = null;
+                        foreach ($traffic_lights['data'] as $light) {
+                            if ($light->direction == $road->id) {
+                                $traffic_light = $light;
+                                break;
+                            }
+                        }
+
+                        $isGreenLight = !$traffic_light || $traffic_light->color == 'G';
+
+                        $carCount = 0;
+                        foreach ($cars['data'] as $car) {
+                            if (self::isCarOnRoad($car, $start, $end)) {
+                                $carCount++;
+                            }
+                        }
+                        $comfortCoefficient = $isGreenLight ? 1.5 : 1;
+                        $comfortCoefficient *= max(1, 10 / ($carCount + 1));
+
+                        Road::updateCoefficient($road->id, $comfortCoefficient);
+                    }
+                } else {
                     throw new Error("Ошибка при получении автомобилей");
-            } else
+                }
+            } else {
                 throw new Error("Ошибка при получении карты");
+            }
         } catch (Exception $ex) {
             $_SESSION['error'] = $ex->getMessage();
         }
 
         header('location: ../../profile', false);
     }
+
+    private static function isCarOnRoad($car, $start, $end)
+    {
+        $roadVector = ['x' => $end->x - $start->x, 'y' => $end->y - $start->y];
+        $carVector = ['x' => $car->x - $start->x, 'y' => $car->y - $start->y];
+        $dotProduct = ($carVector['x'] * $roadVector['x'] + $carVector['y'] * $roadVector['y']) /
+            (pow($roadVector['x'], 2) + pow($roadVector['y'], 2));
+
+        if ($dotProduct < 0 || $dotProduct > 1) {
+            return false;
+        }
+
+        $closestPoint = [
+            'x' => $start->x + $dotProduct * $roadVector['x'],
+            'y' => $start->y + $dotProduct * $roadVector['y'],
+        ];
+
+        $distance = sqrt(pow($car->x - $closestPoint['x'], 2) + pow($car->y - $closestPoint['y'], 2));
+        return $distance < 10;
+    }
+
 
     public static function tl_update()
     {

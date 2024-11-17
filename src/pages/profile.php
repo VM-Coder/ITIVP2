@@ -48,7 +48,6 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
     window.onload = () => {
         ctx = document.querySelector('canvas').getContext('2d');
 
-
         ctx.fillStyle = 'white';
         ctx.fillRect(0, 0, 1024, 768);
 
@@ -59,7 +58,7 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
             let start = points[road.start_point - 1];
             let end = points[road.end_point - 1];
 
-            dir = {
+            let dir = {
                 x: (end.x - start.x) / Math.sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2),
                 y: (end.y - start.y) / Math.sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2),
             };
@@ -73,6 +72,14 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
             ctx.moveTo(center.x + start.x + bias.x, center.y + start.y + bias.y);
             ctx.lineTo(center.x + end.x + bias.x, center.y + end.y + bias.y);
             ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(center.x + start.x - bias.x, center.y + start.y - bias.y);
+            ctx.lineTo(center.x + end.x - bias.x, center.y + end.y - bias.y);
+            ctx.stroke();
+
+            displayComfortCoefficient(road, start, end, dir, true);
+            displayComfortCoefficient(road, end, start, { x: -dir.x, y: -dir.y }, false);
         }
 
         ctx.fillStyle = 'black';
@@ -95,17 +102,13 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
         }
 
         for (let traffic_light of traffic_lights) {
-            if (traffic_light.color == 'R')
-                ctx.fillStyle = 'red';
-            else
-                ctx.fillStyle = 'green';
+            ctx.fillStyle = (traffic_light.color === 'R') ? 'red' : 'green';
 
             let road = roads[traffic_light.direction - 1];
-
             let start = points[road.start_point - 1];
             let end = points[road.end_point - 1];
 
-            dir = {
+            let dir = {
                 x: (end.x - start.x) / Math.sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2),
                 y: (end.y - start.y) / Math.sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2),
             };
@@ -120,6 +123,55 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
                 ctx.fillText(traffic_light.id, center.x + start.x + 15 * dir.x - dx, center.y + start.y + 15 * dir.y + 3);
             }
         }
+
+        for (let road of roads) {
+            let start = points[road.start_point - 1];
+            let end = points[road.end_point - 1];
+            let dir = {
+                x: (end.x - start.x) / Math.sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2),
+                y: (end.y - start.y) / Math.sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2),
+            };
+
+            displayComfortCoefficient(road, start, end, dir, true);
+            displayComfortCoefficient(road, end, start, { x: -dir.x, y: -dir.y }, false);
+        }
+    };
+
+    function displayComfortCoefficient(road, start, end, dir, isPrimaryDirection) {
+        let traffic_light = traffic_lights.find(t => t.direction === road.id);
+        let isGreenLight = !traffic_light || traffic_light.color === 'G';
+        let carCount = cars.filter(car => isCarOnRoad(car, start, end)).length;
+        let comfortCoefficient = isGreenLight ? 1.5 : 1;
+        comfortCoefficient *= Math.max(1, 10 / (carCount + 1));
+
+        let offsetX = 25 * dir.y * (isPrimaryDirection ? 1 : -1);
+        let offsetY = -25 * dir.x * (isPrimaryDirection ? 1 : -1);
+
+        ctx.fillStyle = 'black';
+        ctx.font = '16px Arial';
+        ctx.fillText(`${comfortCoefficient.toFixed(2)}`,
+            center.x + (start.x + end.x) / 2 + offsetX,
+            center.y + (start.y + end.y) / 2 + offsetY
+        );
+    }
+
+    function isCarOnRoad(car, start, end) {
+        let roadVector = { x: end.x - start.x, y: end.y - start.y };
+        let carVector = { x: car.x - start.x, y: car.y - start.y };
+        let dotProduct = (carVector.x * roadVector.x + carVector.y * roadVector.y) / 
+                         (roadVector.x ** 2 + roadVector.y ** 2);
+
+        if (dotProduct < 0 || dotProduct > 1) {
+            return false;
+        }
+
+        let closestPoint = {
+            x: start.x + dotProduct * roadVector.x,
+            y: start.y + dotProduct * roadVector.y
+        };
+
+        let distance = Math.sqrt((car.x - closestPoint.x) ** 2 + (car.y - closestPoint.y) ** 2);
+        return distance < 10;
     }
 </script>
 
@@ -133,8 +185,8 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
         echo '<form method="POST" action=\'user/update/traffic_light\'>';
         echo '<input class="hidden" name=\'id\' readonly type=\'number\' value=\'' . $light->id . '\'></input>';
         echo '<select name=\'color\' oninput=\'this.form.submit();\'>';
-        echo '<option value=\'R\'' . ($light->color == 'R' ? ' selected' :  '') . '>Красный</option>';
-        echo '<option value=\'G\'' . ($light->color == 'G' ? ' selected' :  '') . '>Зелёный</option>';
+        echo '<option value=\'R\'' . ($light->color == 'R' ? ' selected' : '') . '>Красный</option>';
+        echo '<option value=\'G\'' . ($light->color == 'G' ? ' selected' : '') . '>Зелёный</option>';
         echo '</select>';
         echo '</form><br>';
     }
@@ -151,7 +203,7 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
 
 <div class="container mt-8">
     <h1 class="text-3xl text-center">Карта дорог</h1>
-    <form method="POST" action="user/update/map">
+    <form method="POST" action="user/update/map" align="center">
         <button>Обновить</button>
     </form>
     <canvas class="mx-auto my-8" width="1024" height="768">

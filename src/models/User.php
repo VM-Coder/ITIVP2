@@ -101,7 +101,18 @@ class User extends Model
     public static function all()
     {
         $data = Database::select(
-            static::$table
+            static::$table,
+            null,
+            [
+                'id',
+                'email',
+                'password',
+                'lastname',
+                'firstname',
+                'role',
+                'car_id',
+                'point_id'
+            ]
         );
 
         if (gettype($data) == 'string')
@@ -123,7 +134,7 @@ class User extends Model
                 $user->password = $row['password'];
                 $user->firstname = $row['firstname'];
                 $user->lastname = $row['lastname'];
-                $user->role = $row['is_admin'];
+                $user->role = $row['role'];
                 $user->car_id = $row['car_id'];
                 $user->point_id = $row['point_id'];
 

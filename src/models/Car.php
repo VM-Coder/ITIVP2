@@ -59,6 +59,55 @@ class Car extends Model
             'status' => false
         ];
     }
+
+    public static function getAllSortedByMovementCount()
+    {
+        $data = Database::select(
+            static::$table,
+            null,
+            [
+                'id',
+                'class',
+                'model',
+                'movement_count'
+            ],
+            null,
+            null,
+            ['movement_count DESC']
+        );
+
+        if (gettype($data) == 'string') {
+            return [
+                'data' => $data,
+                'status' => false
+            ];
+        }
+
+        if ($data->num_rows > 0) {
+            $cars = [];
+            foreach ($data->fetch_all(MYSQLI_ASSOC) as $row) {
+                $car = new Car();
+                $car->id = $row['id'];
+                $car->class = $row['class'];
+                $car->model = $row['model'];
+                $car->movement_count = $row['movement_count'];
+                $cars[] = $car;
+            }
+
+            return [
+                'data' => $cars,
+                'status' => true
+            ];
+        }
+
+        return [
+            'data' => 'Автомобили не найдены',
+            'status' => false
+        ];
+    }
+
+
+
     public static function where(array $conditions)
     {
         $data = Database::select(

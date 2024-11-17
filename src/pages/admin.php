@@ -2,6 +2,7 @@
 
 require_once '../models/User.php';
 require_once '../models/Car.php';
+require_once '../models/Road.php';
 
 session_start();
 
@@ -39,14 +40,19 @@ body_top();
         <details class="open:bg-gray-500">
             <summary class="p-4 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300">Таблицы</summary>
             <ul>
-                <li><button class="p-4 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300" onclick="showBlock('#table_cars')">Автомобили</button></li>
-                <li><button class="p-4 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300" onclick="showBlock('#table_users')">Пользователи</button></li>
+                <li><button class="p-2 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300"
+                        onclick="showBlock('#table_cars')">Автомобили</button></li>
+                <li><button class="p-2 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300"
+                        onclick="showBlock('#table_roads')">Дороги</button></li>
+                <li><button class="p-2 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300"
+                        onclick="showBlock('#table_users')">Пользователи</button></li>
             </ul>
         </details>
         <details class="open:bg-gray-500">
             <summary class="p-4 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300">Статистика</summary>
             <ul>
-                <li><button class="p-4 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300" onclick="showBlock('#stats_cars')">Автомобили</button></li>
+                <li><button class="p-2 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300"
+                        onclick="showBlock('#stats_cars')">Автомобили</button></li>
             </ul>
         </details>
         <a class="p-4 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300"></a>
@@ -68,13 +74,23 @@ body_top();
                 </div>
 
                 <p class="text-center text-red-600"><?= !isset($_SESSION['error']) ? '' : $_SESSION['error'] ?></p>
-                <p class="text-center text-green-600"><?= !isset($_SESSION['success']) ? '' : $_SESSION['success'] ?></p>
+                <p class="text-center text-green-600"><?= !isset($_SESSION['success']) ? '' : $_SESSION['success'] ?>
+                </p>
             </div>
 
             <div class="mt-12">
                 <div class="mt-8">
                     <h2 class="font-bold text-slate-700 text-xl text-center">Таблица машин</h2>
                     <?php include '../ui/table/table_cars.php'; ?>
+                </div>
+            </div>
+        </section>
+
+        <section id="table_roads" class="content-block hidden">
+            <div class="mt-12">
+                <div class="mt-8">
+                    <h2 class="font-bold text-slate-700 text-xl text-center">Таблица дорог</h2>
+                    <?php include '../ui/table/table_roads.php'; ?>
                 </div>
             </div>
         </section>
@@ -99,7 +115,7 @@ body_top();
                     foreach ($_SESSION['stats_model'] as $val) {
                         echo '<tr class="bg-white">';
                         echo '<td class="border border-slate-300 px-4 py-2">' . $val['model'] . '</td>';
-                        echo '<td class="border border-slate-300 px-4 py-2">' . (100 * (int)$val['count'] / $_SESSION['count']) . '</td>';
+                        echo '<td class="border border-slate-300 px-4 py-2">' . (100 * (int) $val['count'] / $_SESSION['count']) . '</td>';
                         echo '</tr>';
                     }
                     ?>
@@ -116,7 +132,26 @@ body_top();
                     foreach ($_SESSION['stats_class'] as $val) {
                         echo '<tr class="bg-white">';
                         echo '<td class="border border-slate-300 px-4 py-2">' . $val['class'] . '</td>';
-                        echo '<td class="border border-slate-300 px-4 py-2">' . (100 * (int)$val['count'] / $_SESSION['count']) . '</td>';
+                        echo '<td class="border border-slate-300 px-4 py-2">' . (100 * (int) $val['count'] / $_SESSION['count']) . '</td>';
+                        echo '</tr>';
+                    }
+                    ?>
+                </table>
+            <?php endif; ?>
+
+            <?php if (isset($_SESSION['sorted_cars'])): ?>
+                <table class="w-full mt-4 table-auto border-collapse">
+                    <tr class="bg-slate-300">
+                        <th class="border border-slate-300 px-4 py-2">ID</th>
+                        <th class="border border-slate-300 px-4 py-2">Модель</th>
+                        <th class="border border-slate-300 px-4 py-2">Кол-во перемещений</th>
+                    </tr>
+                    <?php
+                    foreach ($_SESSION['sorted_cars'] as $car) {
+                        echo '<tr class="bg-white">';
+                        echo '<td class="border border-slate-300 px-4 py-2">' . $car->id . '</td>';
+                        echo '<td class="border border-slate-300 px-4 py-2">' . $car->model . '</td>';
+                        echo '<td class="border border-slate-300 px-4 py-2">' . $car->movement_count . '</td>';
                         echo '</tr>';
                     }
                     ?>
