@@ -3,6 +3,8 @@
 require_once '../models/User.php';
 require_once '../models/Car.php';
 require_once '../models/Road.php';
+require_once '../controllers/CarController.php';
+require_once '../controllers/UserController.php';
 
 session_start();
 
@@ -20,9 +22,16 @@ if ($_SESSION['user']->role != 'A') {
 
 require_once 'template.php';
 
+Database::connect();
+CarController::list();
+UserController::list();
+$sorted_roads = Road::allCoefOrder();
+if ($sorted_roads['status']) {
+    $_SESSION['sorted_roads'] = $sorted_roads['data'];
+}
+
 head(title: "Администратор");
 body_top();
-
 ?>
 
 <script>
