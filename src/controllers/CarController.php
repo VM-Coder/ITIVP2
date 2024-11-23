@@ -83,14 +83,13 @@ class CarController
 
         header('location: ../admin', false);
     }
-
     public static function delete()
     {
         try {
             if (!isset($_POST['id']))
                 throw new Exception('ID для удаления машины не передан');
 
-            $id = (int)$_POST['id'];
+            $id = (int) $_POST['id'];
             $cars = Car::where([
                 'id = ' . $id
             ]);
@@ -115,7 +114,6 @@ class CarController
 
         header('location: ../admin', false);
     }
-
     public static function list()
     {
         $result = Car::all();
@@ -126,7 +124,6 @@ class CarController
             $_SESSION['error'] = $result['data'];
         }
     }
-
     public static function stats()
     {
         try {
@@ -144,10 +141,13 @@ class CarController
 
             $count = Car::all();
 
-            if ($stats_model['status'] && $stats_class['status'] && $count['status']) {
+            $sorted_cars = Car::sorted(['movement_count DESC']);
+
+            if ($stats_model['status'] && $stats_class['status'] && $count['status'] && $sorted_cars['status']) {
                 $_SESSION['stats_model'] = $stats_model['data'];
                 $_SESSION['stats_class'] = $stats_class['data'];
                 $_SESSION['count'] = count($count['data']);
+                $_SESSION['sorted_cars'] = $sorted_cars['data'];
             } else {
                 $_SESSION['error'] = $stats_model['data'];
             }

@@ -127,3 +127,85 @@ UPDATE `user` SET `point_id` = '3' WHERE `user`.`id` = 12;
 UPDATE `user` SET `point_id` = '4' WHERE `user`.`id` = 13;
 UPDATE `user` SET `point_id` = '5' WHERE `user`.`id` = 14;
 UPDATE `user` SET `point_id` = '7' WHERE `user`.`id` = 15;
+
+-- Lab3
+
+UPDATE car 
+SET position = ST_GeomFromText('POINT(340 340)') 
+WHERE id = 18;
+
+ALTER TABLE car
+ADD COLUMN movement_count INT DEFAULT 0;
+
+DELIMITER //
+
+CREATE TRIGGER update_movement_count
+BEFORE UPDATE ON car
+FOR EACH ROW
+BEGIN
+    IF ST_Equals(OLD.position, NEW.position) = 0 THEN
+        SET NEW.movement_count = OLD.movement_count + 1;
+    END IF;
+END;
+
+//
+
+DELIMITER ;
+
+ALTER TABLE road ADD COLUMN coefficient FLOAT DEFAULT 0;
+
+-- Lab4
+
+ALTER TABLE car
+ADD COLUMN road_id INT DEFAULT NULL;
+
+ALTER TABLE car
+ADD FOREIGN KEY (road_id) REFERENCES road(id);
+
+ALTER TABLE car
+ADD COLUMN distance FLOAT DEFAULT 0;
+
+ALTER TABLE car
+DROP COLUMN position;
+
+DROP TRIGGER update_movement_count;
+
+ALTER TABLE car 
+DROP COLUMN movement_count;
+
+UPDATE car SET distance = RAND(), road_id = FLOOR(1.0 + 18 * RAND());
+
+CREATE TABLE params (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    param VARCHAR(256) NOT NULL UNIQUE,
+    value FLOAT NOT NULL
+);
+
+INSERT INTO params (param, value) VALUES 
+('AUTO_COEF', 0.2), 
+('LENGTH_COEF', 0.5), 
+('LIGHT_COEF', 0.3),
+('BIAS', 5),
+('A/L_RATIO', 0);
+
+-- DELIMITER //
+-- CREATE PROCEDURE refresh_coef()
+-- BEGIN
+--     SET @auto_coef = (SELECT value FROM params WHERE param='AUTO_COEF');
+--     SET @length_coef = (SELECT value FROM params WHERE param='LENGTH_COEF');
+--     SET @light_coef = (SELECT value FROM params WHERE param='LIGHT_COEF');
+--     SET @bias = (SELECT value FROM params WHERE param='BIAS');
+
+--     SET @i = (SELECT MIN(id) FROM road);
+--     SET @max = (SELECT MAX(id) FROM road);
+--     WHILE @i <= @max DO 
+--         SET @node = (SELECT end_point FROM road WHERE id = @i);
+--         SET @auto_count = (SELECT COUNT(*) FROM car WHERE road_id = @i);
+--         SET @length = (SELECT SQRT(POW(ST_X(coords), 2) + POW(ST_Y(coords), 2)) FROM point WHERE id = @node);
+--         SET @light_count = (SELECT COUNT(*) FROM traffic_light WHERE color = 'R' AND position = @node) - (SELECT COUNT(*) FROM traffic_light WHERE color = 'G' AND position = @node);
+--         SET @k = @bias - (@auto_coef * @auto_count + @length_coef * @length + @light_coef * @light_count);
+--         UPDATE road SET coefficient = @k WHERE id = @i;
+--         SET @i = @i + 1;
+--     END WHILE;
+-- END; //
+-- DELIMITER ;

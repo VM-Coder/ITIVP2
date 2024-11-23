@@ -4,8 +4,9 @@ require_once '../models/User.php';
 require_once '../models/Point.php';
 require_once '../models/Road.php';
 require_once '../models/TrafficLight.php';
+require_once '../models/Param.php';
 
-session_start(); //используется во всех файлах, где необходим доступ к переменной $_SESSION
+session_start();
 
 require_once '../server/validator.php';
 
@@ -33,16 +34,25 @@ class UserController
                 CarController::list();
                 UserController::list();
 
+                ParamController::list();
+
+                $sorted_roads = Road::allCoefOrder();
+                if ($sorted_roads['status']) {
+                    $_SESSION['sorted_roads'] = $sorted_roads['data'];
+                }
+
                 header('location: ../admin', false);
             } else {
                 $points = Point::all();
                 $roads = Road::all();
                 $traffic_lights = TrafficLight::all();
+                $params = Param::all();
 
-                if ($points['status'] && $roads['status'] && $traffic_lights['status']) {
+                if ($points['status'] && $roads['status'] && $traffic_lights['status'] && $params['status']) {
                     $_SESSION['points'] = $points['data'];
                     $_SESSION['roads'] = $roads['data'];
                     $_SESSION['traffic_lights'] = $traffic_lights['data'];
+                    $_SESSION['params'] = $params['data'];
                 } else
                     throw new Error("Ошибка при получении карты");
 
@@ -170,10 +180,8 @@ class UserController
                 if (!$car['status']) {
                     if ($car['data'] == 'Автомобиль не найден') {
                         $car = new Car();
-
                         $car->model = '';
                         $car->class = '';
-
                         $car->save();
 
                         $user->car_id = $car->id;
@@ -189,17 +197,20 @@ class UserController
                         [
                             $_POST['class'],
                             $_POST['model'],
-                            $_POST['position']
+                            $_POST['road_id'],
+                            $_POST['distance']
                         ],
                         [
                             '/^[A-Z]$/',
                             '/^[A-Za-z\s\d]{1,32}$/',
-                            '/^\-?\d+\s\-?\d+$/'
+                            '/^\d+$/',
+                            '/^[0](\.\d{1,7})?$|^[1](\.[0]{1,7})?$/'
                         ],
                         [
                             'Класс машины должен состоять из одной заглавной буквы (A-Z).',
                             'Модель машины может содержать только латинские буквы, цифры и пробелы.',
-                            'Координаты заданы неверно'
+                            'Неверный номер дороги',
+                            'Дистанция задана неверно. Дистанция должна быть числом от 0 до 1'
                         ]
                     );
 
@@ -208,14 +219,10 @@ class UserController
 
                     $car['data']->model = $_POST['model'];
                     $car['data']->class = $_POST['class'];
+                    $car['data']->road_id = $_POST['road_id'];
+                    $car['data']->distance = $_POST['distance'];
 
-                    $coords = explode(" ", $_POST['position']);
-
-                    $car['data']->x = $coords[0];
-                    $car['data']->y = $coords[1];
-
-
-                    if (isset($_FILES['car_image'])) {
+                    if ($_FILES['car_image']['tmp_name'] != '') {
                         $info = pathinfo($_FILES['car_image']['name']);
                         $ext = $info['extension'];
 
@@ -230,18 +237,21 @@ class UserController
                         }
                     }
 
-                    $car['data']->save();
-
-                    $_SESSION['car'] = $car['data'];
+                    $status = $car['data']->save()['status'];
+                    if ($status) {
+                        $_SESSION['car'] = $car['data'];
+                        $_SESSION['success'] = 'Автомобиль обновлён';
+                    } else {
+                        $_SESSION['error'] = 'Не удалось обновить автомобиль';
+                    }
                 }
             } else {
                 $car = new Car();
-
                 $car->model = '';
                 $car->class = '';
-
+                $car->distance = 0;
+                $car->road_id = null;
                 $car->save();
-
 
                 $user->car_id = $car->id;
                 $user->save();
@@ -255,34 +265,36 @@ class UserController
 
         header('location: ../../profile', false);
     }
-
     public static function map_update()
     {
         try {
             $points = Point::all();
             $roads = Road::all();
             $traffic_lights = TrafficLight::all();
+            $params = Param::all();
 
-            if ($points['status'] && $roads['status'] && $traffic_lights['status']) {
+            if ($points['status'] && $roads['status'] && $traffic_lights['status'] && $params['status']) {
                 $_SESSION['points'] = $points['data'];
                 $_SESSION['roads'] = $roads['data'];
                 $_SESSION['traffic_lights'] = $traffic_lights['data'];
+                $_SESSION['params'] = $params['data'];
 
                 $cars = Car::all();
 
-                if ($cars['status'] && $cars['status']) {
+                if ($cars['status']) {
                     $_SESSION['cars'] = $cars['data'];
-                } else
+                } else {
                     throw new Error("Ошибка при получении автомобилей");
-            } else
+                }
+            } else {
                 throw new Error("Ошибка при получении карты");
+            }
         } catch (Exception $ex) {
             $_SESSION['error'] = $ex->getMessage();
         }
 
         header('location: ../../profile', false);
     }
-
     public static function tl_update()
     {
         try {
@@ -318,7 +330,6 @@ class UserController
 
         header('location: ../../profile', false);
     }
-
     public static function list()
     {
         $result = User::all();

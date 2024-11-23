@@ -43,3 +43,71 @@ You have an error in your SQL syntax; check the manual that corresponds to your 
 #3 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(30): UserController::car_update()
 #4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(37): Router::resolve()
 #5 {main}
+POST /user/update/car
+Cannot add or update a child row: a foreign key constraint fails (`traffic_control`.`car`, CONSTRAINT `car_ibfk_1` FOREIGN KEY (`road_id`) REFERENCES `road` (`id`))
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(150): mysqli->query('UPDATE car SET ...')
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\models\Car.php(270): Database::update('car', Array, Array)
+#2 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\UserController.php(238): Car->save()
+#3 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(32): UserController::car_update()
+#4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(39): Router::resolve()
+#5 {main}
+POST /user/update/car
+Cannot add or update a child row: a foreign key constraint fails (`traffic_control`.`car`, CONSTRAINT `car_ibfk_1` FOREIGN KEY (`road_id`) REFERENCES `road` (`id`))
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(150): mysqli->query('UPDATE car SET ...')
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\models\Car.php(270): Database::update('car', Array, Array)
+#2 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\UserController.php(238): Car->save()
+#3 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(32): UserController::car_update()
+#4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(39): Router::resolve()
+#5 {main}
+POST /user/update/car
+Cannot add or update a child row: a foreign key constraint fails (`traffic_control`.`car`, CONSTRAINT `car_ibfk_1` FOREIGN KEY (`road_id`) REFERENCES `road` (`id`))
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(150): mysqli->query('UPDATE car SET ...')
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\models\Car.php(270): Database::update('car', Array, Array)
+#2 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\UserController.php(238): Car->save()
+#3 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(32): UserController::car_update()
+#4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(39): Router::resolve()
+#5 {main}
+POST /user/update/car
+Cannot add or update a child row: a foreign key constraint fails (`traffic_control`.`car`, CONSTRAINT `car_ibfk_1` FOREIGN KEY (`road_id`) REFERENCES `road` (`id`))
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(150): mysqli->query('UPDATE car SET ...')
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\models\Car.php(270): Database::update('car', Array, Array)
+#2 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\UserController.php(238): Car->save()
+#3 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(32): UserController::car_update()
+#4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(39): Router::resolve()
+#5 {main}
+POST /user/login
+Unknown column 'movement_count' in 'order clause'
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT id, clas...')
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\models\Car.php(75): Database::select('car', NULL, Array, NULL, NULL, Array)
+#2 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\CarController.php(144): Car::sorted(Array)
+#3 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\UserController.php(33): CarController::stats()
+#4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(32): UserController::login()
+#5 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(39): Router::resolve()
+#6 {main}
+POST /user/login
+Unknown column 'movement_count' in 'order clause'
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT id, clas...')
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\models\Car.php(75): Database::select('car', NULL, Array, NULL, NULL, Array)
+#2 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\CarController.php(144): Car::sorted(Array)
+#3 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\UserController.php(33): CarController::stats()
+#4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(32): UserController::login()
+#5 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(39): Router::resolve()
+#6 {main}
+POST /user/login
+Unknown column 'movement_count' in 'order clause'
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT id, clas...')
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\models\Car.php(75): Database::select('car', NULL, Array, NULL, NULL, Array)
+#2 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\CarController.php(144): Car::sorted(Array)
+#3 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\UserController.php(33): CarController::stats()
+#4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(34): UserController::login()
+#5 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(41): Router::resolve()
+#6 {main}
+POST /user/login
+Unknown column 'movement_count' in 'order clause'
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT id, clas...')
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\models\Car.php(75): Database::select('car', NULL, Array, NULL, NULL, Array)
+#2 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\CarController.php(144): Car::sorted(Array)
+#3 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\UserController.php(33): CarController::stats()
+#4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(34): UserController::login()
+#5 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(41): Router::resolve()
+#6 {main}

@@ -8,9 +8,10 @@ class Car extends Model
     public int $id = 0;
     public string $class;
     public string $model;
-    public ?int $x = null;
-    public ?int $y = null;
+    public ?int $road_id;
+    public float $distance;
     public ?string $image = null;
+    public float $movement_count = 0;
     public function __construct() {}
     public static function get(int $primary_key)
     {
@@ -23,8 +24,8 @@ class Car extends Model
                 'id',
                 'class',
                 'model',
-                'ST_X(position) AS x',
-                'ST_Y(position) AS y',
+                'road_id',
+                'distance',
                 'image'
             ]
         );
@@ -43,8 +44,8 @@ class Car extends Model
             $car->class = $data['class'];
             $car->model = $data['model'];
 
-            $car->x = $data['x'];
-            $car->y = $data['y'];
+            $car->road_id = $data['road_id'];
+            $car->distance = $data['distance'];
 
             $car->image = $data['image'];
 
@@ -59,6 +60,50 @@ class Car extends Model
             'status' => false
         ];
     }
+    public static function sorted(array $sort_fields)
+    {
+        $data = Database::select(
+            static::$table,
+            null,
+            [
+                'id',
+                'class',
+                'model'
+            ],
+            null,
+            null,
+            $sort_fields
+        );
+
+        if (gettype($data) == 'string') {
+            return [
+                'data' => $data,
+                'status' => false
+            ];
+        }
+
+        if ($data->num_rows > 0) {
+            $cars = [];
+            foreach ($data->fetch_all(MYSQLI_ASSOC) as $row) {
+                $car = new Car();
+                $car->id = $row['id'];
+                $car->class = $row['class'];
+                $car->model = $row['model'];
+
+                $cars[] = $car;
+            }
+
+            return [
+                'data' => $cars,
+                'status' => true
+            ];
+        }
+
+        return [
+            'data' => 'Автомобили не найдены',
+            'status' => false
+        ];
+    }
     public static function where(array $conditions)
     {
         $data = Database::select(
@@ -68,8 +113,8 @@ class Car extends Model
                 'id',
                 'class',
                 'model',
-                'ST_X(position) AS x',
-                'ST_Y(position) AS y',
+                'road_id',
+                'distance',
                 'image'
             ]
         );
@@ -90,8 +135,8 @@ class Car extends Model
                 $car->class = $row['class'];
                 $car->model = $row['model'];
 
-                $car->x = $row['x'];
-                $car->y = $row['y'];
+                $car->road_id = $data['road_id'];
+                $car->distance = $data['distance'];
 
                 $car->image = $data['image'];
 
@@ -118,8 +163,8 @@ class Car extends Model
                 'id',
                 'class',
                 'model',
-                'ST_X(position) AS x',
-                'ST_Y(position) AS y',
+                'road_id',
+                'distance',
                 'image'
             ]
         );
@@ -140,10 +185,10 @@ class Car extends Model
                 $car->class = $row['class'];
                 $car->model = $row['model'];
 
-                $car->x = $row['x'];
-                $car->y = $row['y'];
+                $car->road_id = $row['road_id'];
+                $car->distance = $row['distance'];
 
-                $car->image = $data['image'];
+                $car->image = $row['image'];
 
                 array_push($cars, $car);
             }
@@ -194,7 +239,8 @@ class Car extends Model
         $values = [
             'class' => '\'' . $this->class . '\'',
             'model' => '\'' . $this->model . '\'',
-            'position' => ($this->x && $this->y ? 'ST_GeomFromText(\'POINT(' . $this->x . ' ' . $this->y . ')\')' : 'NULL'),
+            'road_id' => $this->road_id ?? 'NULL',
+            'distance' => $this->distance,
             'image' => ($this->image ? '\'' . $this->image . '\'' : 'NULL')
         ];
 
@@ -237,7 +283,6 @@ class Car extends Model
             ];
         }
     }
-
     public function destroy()
     {
         $result = Database::delete(
