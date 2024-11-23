@@ -10,9 +10,7 @@ class Road extends Model
     public int $end_point;
     public float $coefficient = 0.0;
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     public static function get(int $primary_key)
     {
@@ -41,7 +39,7 @@ class Road extends Model
             $road = new Road();
             $road->id = $data['id'];
             $road->start_point = $data['start_point'];
-            $road->end_pont = $data['end_pont'];
+            $road->end_point = $data['end_pont'];
             $road->coefficient = $data['coefficient'];
 
             return [

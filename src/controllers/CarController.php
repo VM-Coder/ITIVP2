@@ -83,7 +83,6 @@ class CarController
 
         header('location: ../admin', false);
     }
-
     public static function delete()
     {
         try {
@@ -115,7 +114,6 @@ class CarController
 
         header('location: ../admin', false);
     }
-
     public static function list()
     {
         $result = Car::all();
@@ -126,7 +124,6 @@ class CarController
             $_SESSION['error'] = $result['data'];
         }
     }
-
     public static function stats()
     {
         try {
@@ -144,7 +141,7 @@ class CarController
 
             $count = Car::all();
 
-            $sorted_cars = Car::getAllSortedByMovementCount();
+            $sorted_cars = Car::sorted(['movement_count DESC']);
 
             if ($stats_model['status'] && $stats_class['status'] && $count['status'] && $sorted_cars['status']) {
                 $_SESSION['stats_model'] = $stats_model['data'];
@@ -162,5 +159,4 @@ class CarController
             header('location: ../admin', false);
         }
     }
-
 }

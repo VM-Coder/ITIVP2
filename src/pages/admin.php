@@ -3,6 +3,7 @@
 require_once '../models/User.php';
 require_once '../models/Car.php';
 require_once '../models/Road.php';
+require_once '../models/Param.php';
 
 session_start();
 
@@ -22,6 +23,8 @@ require_once 'template.php';
 
 head(title: "Администратор");
 body_top();
+
+$button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 hover:to-indigo-400 bg-gradient-to-r from-sky-500 to-indigo-500 rounded-lg";
 
 ?>
 
@@ -53,6 +56,13 @@ body_top();
             <ul>
                 <li><button class="p-2 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300"
                         onclick="showBlock('#stats_cars')">Автомобили</button></li>
+            </ul>
+        </details>
+        <details class="open:bg-gray-500">
+            <summary class="p-4 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300">Параметры</summary>
+            <ul>
+                <li><button class="p-2 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300"
+                        onclick="showBlock('#settings_map')">Карта дорог</button></li>
             </ul>
         </details>
         <a class="p-4 pl-8 text-xl text-gray-200 hover:cursor-pointer hover:text-gray-300"></a>
@@ -157,6 +167,27 @@ body_top();
                     ?>
                 </table>
             <?php endif; ?>
+        </section>
+
+        <section id="settings_map" class="content-block hidden">
+            <div class="mt-12">
+                <div class="mt-8">
+                    <h2 class="font-bold text-slate-700 text-xl text-center">Настройка коэффициентов карты</h2>
+                </div>
+            </div>
+            <form class="flex flex-col m-auto mt-12 w-1/2 h-fit gap-4 items-center" method="post" action="param/update/map">
+                <label>Количество автомобилей: <span><?= $_SESSION['params'][0]->value ?></span></label>
+                <input class="w-full" type="range" name="AUTO_COEF" min="-2" max="6" step="0.1" value="<?= $_SESSION['params'][0]->value ?>" onchange="this.previousElementSibling.lastChild.innerText = this.value" />
+                <label>Длина дороги: <span><?= $_SESSION['params'][1]->value ?></span></label>
+                <input class="w-full" type="range" name="LENGTH_COEF" min="-0.1" max="0.1" step="0.01" value="<?= $_SESSION['params'][1]->value ?>" onchange="this.previousElementSibling.lastChild.innerText = this.value" />
+                <label>Состояния светофоров: <span><?= $_SESSION['params'][2]->value ?></span></label>
+                <input class="w-full" type="range" name="LIGHT_COEF" min="-10" max="10" step="0.1" value="<?= $_SESSION['params'][2]->value ?>" onchange="this.previousElementSibling.lastChild.innerText = this.value" />
+                <label>Смещение: <span><?= $_SESSION['params'][3]->value ?></span></label>
+                <input class="w-full" type="range" name="BIAS" min="-20" max="20" step="1" value="<?= $_SESSION['params'][3]->value ?>" onchange="this.previousElementSibling.lastChild.innerText = this.value" />
+                <label>Соотношение автомобилей к длине дороги: <span><?= $_SESSION['params'][4]->value ?></span></label>
+                <input class="w-full" type="range" name="A/L_RATIO" min="0" max="15" step="0.1" value="<?= $_SESSION['params'][4]->value ?>" onchange="this.previousElementSibling.lastChild.innerText = this.value" />
+                <button type="submit" class="<?= $button_style ?>">Сохранить изменения</button>
+            </form>
         </section>
     </div>
 </div>

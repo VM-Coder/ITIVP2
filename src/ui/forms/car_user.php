@@ -2,7 +2,6 @@
 session_start();
 
 $car = $_SESSION['car'];
-$car_position = isset($car->x) && isset($car->y) ? $car->x . ' ' . $car->y : '';
 
 ?>
 
@@ -14,7 +13,8 @@ $car_position = isset($car->x) && isset($car->y) ? $car->x . ' ' . $car->y : '';
         <h2 class="font-bold text-slate-700 text-lg text-center">Автомобиль</h2>
         <input type="text" value="<?= $car->class ?>" name="class" class="<?= $input_style ?>" placeholder="Класс" required />
         <input type="text" value="<?= $car->model ?>" name="model" class="<?= $input_style ?>" placeholder="Модель" required />
-        <input type="text" value="<?= $car_position ?>" name="position" class="<?= $input_style ?>" placeholder="Координаты: x y" />
+        <input type="number" value="<?= $car->road_id ?>" name="road_id" min="1" class="<?= $input_style ?>" placeholder="Дорога" />
+        <input type="text" value="<?= $car->distance ?>" name="distance" class="<?= $input_style ?>" placeholder="Дистанция" />
         <input type="file" name="car_image" />
         <button type="submit" class="<?= $button_style ?>">Сохранить изменения</button>
     <?php endif; ?>

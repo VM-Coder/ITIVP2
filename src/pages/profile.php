@@ -33,6 +33,7 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
     let roads = <?= json_encode($_SESSION['roads']) ?>;
     let cars = <?= json_encode($_SESSION['cars']) ?>;
     let traffic_lights = <?= json_encode($_SESSION['traffic_lights']) ?>;
+    let params = <?= json_encode($_SESSION['params']) ?>;
 
     let current_lights = <?= isset($_SESSION['current_lights']) ? json_encode($_SESSION['current_lights']) : json_encode([]) ?>;
 
@@ -50,9 +51,7 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
 
         ctx.fillStyle = 'white';
         ctx.fillRect(0, 0, 1024, 768);
-
-        ctx.lineWidth = 4;
-        ctx.strokeStyle = 'grey';
+        ctx.fillStyle = 'black';
 
         for (let road of roads) {
             let start = points[road.start_point - 1];
@@ -68,6 +67,9 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
                 y: -3 * dir.x
             };
 
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = 'grey';
+
             ctx.beginPath();
             ctx.moveTo(center.x + start.x + bias.x, center.y + start.y + bias.y);
             ctx.lineTo(center.x + end.x + bias.x, center.y + end.y + bias.y);
@@ -78,25 +80,82 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
             ctx.lineTo(center.x + end.x - bias.x, center.y + end.y - bias.y);
             ctx.stroke();
 
-            displayComfortCoefficient(road, start, end, dir, true);
-            displayComfortCoefficient(road, end, start, { x: -dir.x, y: -dir.y }, false);
+            const ccar = cars.filter(x => x.road_id == road.id).length;
+
+            const clength = Math.sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2);
+
+            const clight = traffic_lights.filter(x => x.position == end.id && x.color == 'R').length - traffic_lights.filter(x => x.position == end.id && x.color == 'G').length;
+
+            let add = 0;
+            const cratio = ccar * 100 / clength;
+            if (cratio <= params[4].value && params[4].value > 0) {
+                add = (cratio + params[4].value) / 2;
+            } else {
+                add = params[4].value + 1 - Math.exp(cratio - params[4].value);
+            }
+
+            const k = params[3].value - (params[0].value * ccar + params[1].value * clength + params[2].value * clight) + add;
+
+
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = 'black';
+
+            const text = k.toFixed(2);
+            const text_bounds = {
+                w: text.length * 10,
+                h: 20
+            };
+
+            ctx.font = '10px serif';
+            ctx.fillText('#' + road.id, center.x + (start.x + dir.x * 50) - 7.5 - 5 * bias.x, center.y + (start.y + dir.y * 50) + 5 - 5 * bias.y);
+
+            ctx.font = '20px serif';
+            ctx.fillText(text, center.x + (start.x + end.x) / 2 - text_bounds.w / 2 - 10 * bias.x, center.y + (start.y + end.y) / 2 + text_bounds.h / 2 - 10 * bias.y);
         }
 
-        ctx.fillStyle = 'black';
+        ctx.fillStyle = 'white';
         for (let point of points) {
+            ctx.fillStyle = 'black';
             ctx.beginPath();
             ctx.arc(center.x + point.x, center.y + point.y, 10, 0, 2 * Math.PI);
             ctx.fill();
+
+            ctx.font = '10px serif';
+            ctx.fillStyle = 'white';
+            ctx.fillText(point.id, center.x + point.x - 2.5, center.y + point.y + 2.5);
         }
 
         ctx.fillStyle = 'royalblue';
+
         for (let car of cars) {
             if (current_car)
-                if (current_car.x == car.x && current_car.y == car.y)
-                    ctx.fillStyle = 'gold'
+                if (current_car.id == car.id) {
+                    ctx.fillStyle = 'gold';
+                }
 
-            if (car.x && car.y)
-                ctx.fillRect(center.x + car.x - 10, center.y + car.y - 10, 20, 20);
+
+            if (car.road_id && car.distance) {
+                let road = roads[car.road_id - 1]; //roads должно быть отсортировано по возрастанию id!!!
+
+                let start = points[road.start_point - 1];
+                let end = points[road.end_point - 1];
+
+                let dir = {
+                    x: (end.x - start.x) / Math.sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2),
+                    y: (end.y - start.y) / Math.sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2),
+                };
+
+                let bias = {
+                    x: 3 * dir.y,
+                    y: -3 * dir.x
+                };
+
+                let car_pos = {
+                    x: start.x + (end.x - start.x) * car.distance - bias.x,
+                    y: start.y + (end.y - start.y) * car.distance - bias.y
+                }
+                ctx.fillRect(center.x + car_pos.x - 5, center.y + car_pos.y - 5, 10, 10);
+            }
 
             ctx.fillStyle = 'royalblue';
         }
@@ -123,56 +182,7 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
                 ctx.fillText(traffic_light.id, center.x + start.x + 15 * dir.x - dx, center.y + start.y + 15 * dir.y + 3);
             }
         }
-
-        for (let road of roads) {
-            let start = points[road.start_point - 1];
-            let end = points[road.end_point - 1];
-            let dir = {
-                x: (end.x - start.x) / Math.sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2),
-                y: (end.y - start.y) / Math.sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2),
-            };
-
-            displayComfortCoefficient(road, start, end, dir, true);
-            displayComfortCoefficient(road, end, start, { x: -dir.x, y: -dir.y }, false);
-        }
     };
-
-    function displayComfortCoefficient(road, start, end, dir, isPrimaryDirection) {
-        let traffic_light = traffic_lights.find(t => t.direction === road.id);
-        let isGreenLight = !traffic_light || traffic_light.color === 'G';
-        let carCount = cars.filter(car => isCarOnRoad(car, start, end)).length;
-        let comfortCoefficient = isGreenLight ? 1.5 : 1;
-        comfortCoefficient *= Math.max(1, 10 / (carCount + 1));
-
-        let offsetX = 25 * dir.y * (isPrimaryDirection ? 1 : -1);
-        let offsetY = -25 * dir.x * (isPrimaryDirection ? 1 : -1);
-
-        ctx.fillStyle = 'black';
-        ctx.font = '16px Arial';
-        ctx.fillText(`${comfortCoefficient.toFixed(2)}`,
-            center.x + (start.x + end.x) / 2 + offsetX,
-            center.y + (start.y + end.y) / 2 + offsetY
-        );
-    }
-
-    function isCarOnRoad(car, start, end) {
-        let roadVector = { x: end.x - start.x, y: end.y - start.y };
-        let carVector = { x: car.x - start.x, y: car.y - start.y };
-        let dotProduct = (carVector.x * roadVector.x + carVector.y * roadVector.y) / 
-                         (roadVector.x ** 2 + roadVector.y ** 2);
-
-        if (dotProduct < 0 || dotProduct > 1) {
-            return false;
-        }
-
-        let closestPoint = {
-            x: start.x + dotProduct * roadVector.x,
-            y: start.y + dotProduct * roadVector.y
-        };
-
-        let distance = Math.sqrt((car.x - closestPoint.x) ** 2 + (car.y - closestPoint.y) ** 2);
-        return distance < 10;
-    }
 </script>
 
 <? include '../ui/layout/header.php' ?>
