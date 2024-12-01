@@ -141,7 +141,7 @@ class CarController
 
             $count = Car::all();
 
-            $sorted_cars = Car::sorted(['movement_count DESC']);
+            $sorted_cars = Car::sorted(['distance DESC']);
 
             if ($stats_model['status'] && $stats_class['status'] && $count['status'] && $sorted_cars['status']) {
                 $_SESSION['stats_model'] = $stats_model['data'];

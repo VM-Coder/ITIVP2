@@ -265,6 +265,54 @@ class UserController
 
         header('location: ../../profile', false);
     }
+
+    public static function avatar_update()
+    {
+        try {
+            $user = $_SESSION['user'];
+
+            if (!isset($_FILES['avatar']) || $_FILES['avatar']['tmp_name'] == '') {
+                throw new Exception('Файл не был загружен');
+            }
+
+            $file = $_FILES['avatar'];
+            $info = pathinfo($file['name']);
+            $ext = strtolower($info['extension']);
+
+            $allowed_exts = ['jpg', 'jpeg', 'png'];
+            if (!in_array($ext, $allowed_exts)) {
+                throw new Exception('Недопустимый формат файла. Разрешены: jpg, jpeg, png');
+            }
+
+            $upload_dir = '../uploads/avatars/';
+            if (!is_dir($upload_dir)) {
+                mkdir($upload_dir, 0777, true);
+            }
+
+            $new_filename = 'avatar_' . $user->id . '.' . $ext;
+            $destination = $upload_dir . $new_filename;
+
+            if (!move_uploaded_file($file['tmp_name'], $destination)) {
+                throw new Exception('Ошибка при загрузке файла');
+            }
+
+            $user->avatar = 'src/uploads/avatars/' . $new_filename;
+            $update_status = $user->save();
+
+            if (!$update_status['status']) {
+                throw new Exception('Не удалось обновить аватар пользователя');
+            }
+
+            $_SESSION['user'] = $user;
+            $_SESSION['success'] = 'Аватар успешно обновлён';
+
+        } catch (Exception $ex) {
+            $_SESSION['error'] = $ex->getMessage();
+        }
+
+        header('location: ../../profile', false);
+    }
+
     public static function map_update()
     {
         try {

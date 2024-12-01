@@ -149,24 +149,6 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
                 </table>
             <?php endif; ?>
 
-            <?php if (isset($_SESSION['sorted_cars'])): ?>
-                <table class="w-full mt-4 table-auto border-collapse">
-                    <tr class="bg-slate-300">
-                        <th class="border border-slate-300 px-4 py-2">ID</th>
-                        <th class="border border-slate-300 px-4 py-2">Модель</th>
-                        <th class="border border-slate-300 px-4 py-2">Кол-во перемещений</th>
-                    </tr>
-                    <?php
-                    foreach ($_SESSION['sorted_cars'] as $car) {
-                        echo '<tr class="bg-white">';
-                        echo '<td class="border border-slate-300 px-4 py-2">' . $car->id . '</td>';
-                        echo '<td class="border border-slate-300 px-4 py-2">' . $car->model . '</td>';
-                        echo '<td class="border border-slate-300 px-4 py-2">' . $car->movement_count . '</td>';
-                        echo '</tr>';
-                    }
-                    ?>
-                </table>
-            <?php endif; ?>
         </section>
 
         <section id="settings_map" class="content-block hidden">
@@ -175,17 +157,28 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
                     <h2 class="font-bold text-slate-700 text-xl text-center">Настройка коэффициентов карты</h2>
                 </div>
             </div>
-            <form class="flex flex-col m-auto mt-12 w-1/2 h-fit gap-4 items-center" method="post" action="param/update/map">
+            <form class="flex flex-col m-auto mt-12 w-1/2 h-fit gap-4 items-center" method="post"
+                action="param/update/map">
                 <label>Количество автомобилей: <span><?= $_SESSION['params'][0]->value ?></span></label>
-                <input class="w-full" type="range" name="AUTO_COEF" min="-2" max="6" step="0.1" value="<?= $_SESSION['params'][0]->value ?>" onchange="this.previousElementSibling.lastChild.innerText = this.value" />
+                <input class="w-full" type="range" name="AUTO_COEF" min="-2" max="6" step="0.1"
+                    value="<?= $_SESSION['params'][0]->value ?>"
+                    onchange="this.previousElementSibling.lastChild.innerText = this.value" />
                 <label>Длина дороги: <span><?= $_SESSION['params'][1]->value ?></span></label>
-                <input class="w-full" type="range" name="LENGTH_COEF" min="-0.1" max="0.1" step="0.01" value="<?= $_SESSION['params'][1]->value ?>" onchange="this.previousElementSibling.lastChild.innerText = this.value" />
+                <input class="w-full" type="range" name="LENGTH_COEF" min="-0.1" max="0.1" step="0.01"
+                    value="<?= $_SESSION['params'][1]->value ?>"
+                    onchange="this.previousElementSibling.lastChild.innerText = this.value" />
                 <label>Состояния светофоров: <span><?= $_SESSION['params'][2]->value ?></span></label>
-                <input class="w-full" type="range" name="LIGHT_COEF" min="-10" max="10" step="0.1" value="<?= $_SESSION['params'][2]->value ?>" onchange="this.previousElementSibling.lastChild.innerText = this.value" />
+                <input class="w-full" type="range" name="LIGHT_COEF" min="-10" max="10" step="0.1"
+                    value="<?= $_SESSION['params'][2]->value ?>"
+                    onchange="this.previousElementSibling.lastChild.innerText = this.value" />
                 <label>Смещение: <span><?= $_SESSION['params'][3]->value ?></span></label>
-                <input class="w-full" type="range" name="BIAS" min="-20" max="20" step="1" value="<?= $_SESSION['params'][3]->value ?>" onchange="this.previousElementSibling.lastChild.innerText = this.value" />
+                <input class="w-full" type="range" name="BIAS" min="-20" max="20" step="1"
+                    value="<?= $_SESSION['params'][3]->value ?>"
+                    onchange="this.previousElementSibling.lastChild.innerText = this.value" />
                 <label>Соотношение автомобилей к длине дороги: <span><?= $_SESSION['params'][4]->value ?></span></label>
-                <input class="w-full" type="range" name="A/L_RATIO" min="0" max="15" step="0.1" value="<?= $_SESSION['params'][4]->value ?>" onchange="this.previousElementSibling.lastChild.innerText = this.value" />
+                <input class="w-full" type="range" name="A/L_RATIO" min="0" max="15" step="0.1"
+                    value="<?= $_SESSION['params'][4]->value ?>"
+                    onchange="this.previousElementSibling.lastChild.innerText = this.value" />
                 <button type="submit" class="<?= $button_style ?>">Сохранить изменения</button>
             </form>
         </section>

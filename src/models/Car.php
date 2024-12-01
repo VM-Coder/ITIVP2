@@ -11,7 +11,6 @@ class Car extends Model
     public ?int $road_id;
     public float $distance;
     public ?string $image = null;
-    public float $movement_count = 0;
     public function __construct() {}
     public static function get(int $primary_key)
     {
@@ -68,7 +67,8 @@ class Car extends Model
             [
                 'id',
                 'class',
-                'model'
+                'model',
+                'distance'
             ],
             null,
             null,
@@ -89,6 +89,7 @@ class Car extends Model
                 $car->id = $row['id'];
                 $car->class = $row['class'];
                 $car->model = $row['model'];
+                $car->distance = $row['distance'];
 
                 $cars[] = $car;
             }

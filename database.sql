@@ -209,3 +209,8 @@ INSERT INTO params (param, value) VALUES
 --     END WHILE;
 -- END; //
 -- DELIMITER ;
+
+-- Lab5
+
+ALTER TABLE user
+ADD COLUMN avatar BLOB DEFAULT NULL;

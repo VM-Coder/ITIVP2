@@ -18,6 +18,7 @@ class Router
         '/user/update/car' => ['UserController', 'car_update'],
         '/user/update/map' => ['UserController', 'map_update'],
         '/user/update/traffic_light' => ['UserController', 'tl_update'],
+        '/user/update/avatar' => ['UserController', 'avatar_update'],
         '/car/add' => ['CarController', 'add'],
         '/car/delete' => ['CarController', 'delete'],
         '/car/search' => ['CarController', 'search'],

@@ -3,6 +3,9 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} !^m\.
 RewriteRule ^$ /main [R,L]
 
+RewriteCond %{REQUEST_URI} ^/src/uploads/ [NC]
+RewriteRule ^ - [L]
+
 # pages
 
 RewriteRule ^404$ src/pages/404.php
@@ -20,6 +23,7 @@ RewriteRule ^user/signup?$ src/server/router.php
 
 RewriteRule ^user/logout?$ src/server/router.php
 RewriteRule ^user/update/car?$ src/server/router.php
+RewriteRule ^user/update/avatar?$ src/server/router.php
 RewriteRule ^user/update/map?$ src/server/router.php
 RewriteRule ^user/update/traffic_light?$ src/server/router.php
 

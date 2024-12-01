@@ -13,6 +13,7 @@ class User extends Model
     public string $role = 'U';
     public ?int $car_id = null;
     public ?int $point_id = null;
+    public ?string $avatar = null;
     public function __construct() {}
     public static function get(int $primary_key)
     {
@@ -42,6 +43,7 @@ class User extends Model
             $user->role = $data['role'];
             $user->car_id = $data['car_id'];
             $user->point_id = $data['point_id'];
+            $user->avatar = $data['avatar'];
 
             return [
                 'data' => $user,
@@ -83,6 +85,7 @@ class User extends Model
                 $user->role = $row['role'];
                 $user->car_id = $row['car_id'];
                 $user->point_id = $row['point_id'];
+                $user->avatar = $row['avatar'];
 
                 array_push($users, $user);
             }
@@ -111,7 +114,8 @@ class User extends Model
                 'firstname',
                 'role',
                 'car_id',
-                'point_id'
+                'point_id',
+                'avatar'
             ]
         );
 
@@ -137,6 +141,7 @@ class User extends Model
                 $user->role = $row['role'];
                 $user->car_id = $row['car_id'];
                 $user->point_id = $row['point_id'];
+                $user->avatar = $row['avatar'];
 
                 array_push($users, $user);
             }
@@ -162,7 +167,8 @@ class User extends Model
                     'password' => '\'' . sha1($this->password) . '\'',
                     'firstname' => '\'' . $this->firstname . '\'',
                     'lastname' => '\'' . $this->lastname . '\'',
-                    'role' => '\'' . $this->role . '\''
+                    'role' => '\'' . $this->role . '\'',
+                    'avatar' => ($this->avatar ? '\'' . $this->avatar . '\'' : 'NULL')
                 ]
             );
 
@@ -188,7 +194,8 @@ class User extends Model
                     'lastname' => '\'' . $this->lastname . '\'',
                     'role' => '\'' . $this->role . '\'',
                     'car_id' => $this->car_id,
-                    'point_id' => $this->point_id
+                    'point_id' => $this->point_id,
+                    'avatar' => ($this->avatar ? '\'' . $this->avatar . '\'' : 'NULL')
                 ],
                 [
                     'id = ' . $this->id
