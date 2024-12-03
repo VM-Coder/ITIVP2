@@ -16,6 +16,9 @@ $car = $_SESSION['car'];
         <input type="number" value="<?= $car->road_id ?>" name="road_id" min="1" class="<?= $input_style ?>" placeholder="Дорога" />
         <input type="text" value="<?= $car->distance ?>" name="distance" class="<?= $input_style ?>" placeholder="Дистанция" />
         <input type="file" name="car_image" />
+        <? if ($car->image): ?>
+            <img src="https://traffic-control.local/src/uploads/cars/<?= $car->image ?>" />
+        <? endif; ?>
         <button type="submit" class="<?= $button_style ?>">Сохранить изменения</button>
     <?php endif; ?>
 

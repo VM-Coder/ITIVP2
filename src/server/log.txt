@@ -172,3 +172,19 @@ Unknown column 'movement_count' in 'order clause'
 #4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(34): UserController::login()
 #5 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(41): Router::resolve()
 #6 {main}
+POST /user/update/avatar
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 4
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(150): mysqli->query('UPDATE user SET...')
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\models\User.php(201): Database::update('user', Array, Array)
+#2 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\UserController.php(289): User->save()
+#3 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(35): UserController::avatar_update()
+#4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(42): Router::resolve()
+#5 {main}
+POST /user/update/avatar
+Data too long for column 'avatar' at row 1
+#0 D:\Programs\OSPanel\home\traffic-control.local\src\server\database.php(150): mysqli->query('UPDATE user SET...')
+#1 D:\Programs\OSPanel\home\traffic-control.local\src\models\User.php(201): Database::update('user', Array, Array)
+#2 D:\Programs\OSPanel\home\traffic-control.local\src\controllers\UserController.php(289): User->save()
+#3 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(35): UserController::avatar_update()
+#4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(42): Router::resolve()
+#5 {main}

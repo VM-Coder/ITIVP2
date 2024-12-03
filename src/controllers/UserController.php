@@ -228,12 +228,24 @@ class UserController
 
                         if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png') {
                             $car['data']->image = $_FILES['car_image']['name'];
-                            if (move_uploaded_file($_FILES['car_image']['tmp_name'], '../uploads/' . $_FILES['car_image']['name']))
-                                $_SESSION['success'] = 'Изображение загружено';
-                            else
-                                $_SESSION['error'] = 'Ошибка загрузки';
+
+                            if ($_FILES['car_image']['size'] > 16777215) {
+                                throw new Exception('Изображение слишком большое. Размер изображения не должен превышать 16 Мб');
+                            }
+
+                            if (!getimagesize($_FILES['car_image']['tmp_name'])) {
+                                throw new Exception('Файл повреждён или не является изображением');
+                            }
+
+                            if (!is_writable('../uploads/cars') || !is_writable('../uploads/cars')) {
+                                throw new Exception('Отсутствуют права доступа к папке uploads');
+                            }
+
+                            if (!move_uploaded_file($_FILES['car_image']['tmp_name'], '../uploads/cars/' . $_FILES['car_image']['name'])) {
+                                throw new Exception('Ошибка загрузки');
+                            }
                         } else {
-                            $_SESSION['error'] = 'Недопустимый формат файла';
+                            throw new Exception('Недопустимый формат файла');
                         }
                     }
 
@@ -242,7 +254,7 @@ class UserController
                         $_SESSION['car'] = $car['data'];
                         $_SESSION['success'] = 'Автомобиль обновлён';
                     } else {
-                        $_SESSION['error'] = 'Не удалось обновить автомобиль';
+                        throw new Exception('Не удалось обновить автомобиль');
                     }
                 }
             } else {
@@ -284,28 +296,24 @@ class UserController
                 throw new Exception('Недопустимый формат файла. Разрешены: jpg, jpeg, png');
             }
 
-            $upload_dir = '../uploads/avatars/';
-            if (!is_dir($upload_dir)) {
-                mkdir($upload_dir, 0777, true);
+            if ($file['size'] > 16777215) {
+                throw new Exception('Изображение слишком большое. Размер изображения не должен превышать 16 Мб');
             }
 
-            $new_filename = 'avatar_' . $user->id . '.' . $ext;
-            $destination = $upload_dir . $new_filename;
-
-            if (!move_uploaded_file($file['tmp_name'], $destination)) {
-                throw new Exception('Ошибка при загрузке файла');
+            if (!getimagesize($file['tmp_name'])) {
+                throw new Exception('Файл повреждён или не является изображением');
             }
 
-            $user->avatar = 'src/uploads/avatars/' . $new_filename;
-            $update_status = $user->save();
+            $user->avatar = $ext . ';base64, ' . base64_encode(file_get_contents($file['tmp_name']));
 
-            if (!$update_status['status']) {
+            $result = $user->save();
+
+            if (!$result['status']) {
                 throw new Exception('Не удалось обновить аватар пользователя');
             }
 
             $_SESSION['user'] = $user;
             $_SESSION['success'] = 'Аватар успешно обновлён';
-
         } catch (Exception $ex) {
             $_SESSION['error'] = $ex->getMessage();
         }
