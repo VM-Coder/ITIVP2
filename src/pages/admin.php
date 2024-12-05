@@ -3,7 +3,8 @@
 require_once '../models/User.php';
 require_once '../models/Car.php';
 require_once '../models/Road.php';
-require_once '../models/Param.php';
+require_once '../controllers/CarController.php';
+require_once '../controllers/UserController.php';
 
 session_start();
 
@@ -21,10 +22,16 @@ if ($_SESSION['user']->role != 'A') {
 
 require_once 'template.php';
 
+Database::connect();
+CarController::list();
+UserController::list();
+$sorted_roads = Road::allCoefOrder();
+if ($sorted_roads['status']) {
+    $_SESSION['sorted_roads'] = $sorted_roads['data'];
+}
+
 head(title: "Администратор");
 body_top();
-
-$button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 hover:to-indigo-400 bg-gradient-to-r from-sky-500 to-indigo-500 rounded-lg";
 
 ?>
 
