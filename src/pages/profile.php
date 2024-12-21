@@ -14,6 +14,8 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
+
+
 require_once 'template.php';
 
 head(title: "Профиль");
@@ -21,8 +23,34 @@ body_top();
 
 $user = $_SESSION['user'];
 
-$input_style = "p-4 h-12 bg-slate-100 border-slate-100 focus:border-indigo-500 focus:bg-white outline-none border-2 rounded-lg";
-$button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 hover:to-indigo-400 bg-gradient-to-r from-sky-500 to-indigo-500 rounded-lg";
+$theme = isset($_COOKIE['theme']) ? sodium_crypto_aead_aes256gcm_decrypt($_COOKIE['theme'], 'theme', 'abcdefabcdef', $_SESSION['key']) : 'light';
+
+$vars = [
+    'bg' => 'bg-white',
+    'input' => 'bg-slate-100 text-black focus:bg-white',
+    'gradient' => 'hover:from-sky-400 hover:to-indigo-400 from-sky-500 to-indigo-500',
+    'map' => '#ffffff',
+    'road' => 'grey',
+    'point' => 'black',
+    'text1' => 'black',
+    'text2' => 'white',
+];
+
+if ($theme == 'dark') {
+    $vars = [
+        'bg' => 'bg-neutral-500',
+        'input' => 'bg-neutral-700 text-white focus:bg-neutral-600',
+        'gradient' => 'hover:from-sky-600 hover:to-indigo-600 from-sky-700 to-indigo-700',
+        'map' => '#888888',
+        'road' => '#eeeeee',
+        'point' => 'white',
+        'text1' => 'white',
+        'text2' => 'black',
+    ];
+}
+
+$input_style = "p-4 h-12 " . $vars['input'] . " border-slate-100 focus:border-indigo-500 outline-none border-2 rounded-lg";
+$button_style = "p-2 h-12 text-white hover:bg-gradient-to-r bg-gradient-to-r " . $vars['gradient'] . " rounded-lg";
 
 ?>
 
@@ -49,9 +77,9 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
     window.onload = () => {
         ctx = document.querySelector('canvas').getContext('2d');
 
-        ctx.fillStyle = 'white';
+        ctx.fillStyle = '<?= $vars['map'] ?>';
         ctx.fillRect(0, 0, 1024, 768);
-        ctx.fillStyle = 'black';
+        ctx.fillStyle = '<?= $vars['text1'] ?>';
 
         for (let road of roads) {
             let start = points[road.start_point - 1];
@@ -68,7 +96,7 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
             };
 
             ctx.lineWidth = 4;
-            ctx.strokeStyle = 'grey';
+            ctx.strokeStyle = '<?= $vars['road'] ?>';
 
             ctx.beginPath();
             ctx.moveTo(center.x + start.x + bias.x, center.y + start.y + bias.y);
@@ -98,7 +126,7 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
 
 
             ctx.lineWidth = 1;
-            ctx.strokeStyle = 'black';
+            ctx.strokeStyle = '<?= $vars['text1'] ?>';
 
             const text = k.toFixed(2);
             const text_bounds = {
@@ -115,13 +143,13 @@ $button_style = "p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 h
 
         ctx.fillStyle = 'white';
         for (let point of points) {
-            ctx.fillStyle = 'black';
+            ctx.fillStyle = '<?= $vars['point'] ?>';
             ctx.beginPath();
             ctx.arc(center.x + point.x, center.y + point.y, 10, 0, 2 * Math.PI);
             ctx.fill();
 
             ctx.font = '10px serif';
-            ctx.fillStyle = 'white';
+            ctx.fillStyle = '<?= $vars['text2'] ?>';
             ctx.fillText(point.id, center.x + point.x - 2.5, center.y + point.y + 2.5);
         }
 
@@ -228,5 +256,7 @@ body_bottom();
 
 unset($_SESSION['error']);
 unset($_SESSION['success']);
+unset($_SESSION['error_avatar']);
+unset($_SESSION['success_avatar']);
 
 ?>

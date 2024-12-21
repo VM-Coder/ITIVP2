@@ -1,5 +1,6 @@
 <?php
 
+require_once '../models/Car.php';
 require_once '../models/User.php';
 require_once '../models/Point.php';
 require_once '../models/Road.php';
@@ -28,6 +29,22 @@ class UserController
             }
 
             $_SESSION['user'] = $users['data'][0];
+            $_SESSION['key'] = md5($_SESSION['user']->id . ' ' . $_SESSION['user']->password . ' ' . $_SESSION['user']->email);
+
+            $json = json_encode(['firstname' => $_SESSION['user']->firstname, 'lastname' => $_SESSION['user']->lastname]);
+            
+            $cipher = sodium_crypto_aead_aes256gcm_encrypt($json, 'user',  'abcdefabcdef', $_SESSION['key']);
+            setcookie('user', $cipher, time() + 86400, '/', '', true);
+
+            $theme = isset($_COOKIE['theme']) ? sodium_crypto_aead_aes256gcm_decrypt($_COOKIE['theme'], 'theme', 'abcdefabcdef', $_SESSION['key']) : 'light';
+
+            if ($theme == 'light') {
+                $dark = sodium_crypto_aead_aes256gcm_encrypt('dark', 'theme', 'abcdefabcdef', $_SESSION['key']); 
+                setcookie('theme', $dark, time() + 30 * 86400, '/', '', true, true);
+            } else {
+                $light = sodium_crypto_aead_aes256gcm_encrypt('dark', 'theme', 'abcdefabcdef', $_SESSION['key']); 
+                setcookie('theme', $light, time() + 30 * 86400, '/',  '', true, true);
+            }
 
             if ($_SESSION['user']->role == 'A') {
                 CarController::stats();
@@ -162,6 +179,7 @@ class UserController
     public static function logout()
     {
         try {
+            setcookie('user', '', time() + 86400, '/', '', true);
             unset($_SESSION['user']);
             header('location: ../authorization', false);
         } catch (Exception $ex) {
@@ -237,8 +255,20 @@ class UserController
                                 throw new Exception('Файл повреждён или не является изображением');
                             }
 
-                            if (!is_writable('../uploads/cars') || !is_writable('../uploads/cars')) {
-                                throw new Exception('Отсутствуют права доступа к папке uploads');
+                            if (!is_dir('../uploads')) {
+                                throw new Exception('Указанная директория не существует');
+                            }
+
+                            if (!is_writable('../uploads')) {
+                                throw new Exception('Отсутствуют права доступа к директории');
+                            }
+
+                            if (!is_dir('../uploads/cars')) {
+                                throw new Exception('Указанная директория не существует');
+                            }
+
+                            if (!is_writable('../uploads/cars')) {
+                                throw new Exception('Отсутствуют права доступа к директории');
                             }
 
                             if (!move_uploaded_file($_FILES['car_image']['tmp_name'], '../uploads/cars/' . $_FILES['car_image']['name'])) {
@@ -313,9 +343,9 @@ class UserController
             }
 
             $_SESSION['user'] = $user;
-            $_SESSION['success'] = 'Аватар успешно обновлён';
+            $_SESSION['success_avatar'] = 'Аватар успешно обновлён';
         } catch (Exception $ex) {
-            $_SESSION['error'] = $ex->getMessage();
+            $_SESSION['error_avatar'] = $ex->getMessage();
         }
 
         header('location: ../../profile', false);
@@ -395,5 +425,24 @@ class UserController
         } else {
             $_SESSION['error'] = $result['data'];
         }
+    }
+
+    public static function theme_update()
+    {
+        try {            
+            $theme = isset($_COOKIE['theme']) ? sodium_crypto_aead_aes256gcm_decrypt($_COOKIE['theme'], 'theme', 'abcdefabcdef', $_SESSION['key']) : 'light';
+
+            if ($theme == 'light') {
+                $dark = sodium_crypto_aead_aes256gcm_encrypt('dark', 'theme', 'abcdefabcdef', $_SESSION['key']); 
+                setcookie('theme', $dark, time() + 30 * 86400, '/', '', true, true);
+            } else {
+                $light = sodium_crypto_aead_aes256gcm_encrypt('light', 'theme', 'abcdefabcdef', $_SESSION['key']); 
+                setcookie('theme', $light, time() + 30 * 86400, '/',  '', true, true);
+            }
+        } catch (Exception $ex) {
+            $_SESSION['error'] = $ex->getMessage();
+        }
+
+        header('location: ../../profile');
     }
 }

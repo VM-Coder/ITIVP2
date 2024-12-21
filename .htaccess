@@ -26,6 +26,7 @@ RewriteRule ^user/update/car?$ src/server/router.php
 RewriteRule ^user/update/avatar?$ src/server/router.php
 RewriteRule ^user/update/map?$ src/server/router.php
 RewriteRule ^user/update/traffic_light?$ src/server/router.php
+RewriteRule ^user/update/theme?$ src/server/router.php
 
 RewriteRule ^user/users?$ src/server/router.php
 
