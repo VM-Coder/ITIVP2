@@ -1,5 +1,10 @@
 <?php
 
+namespace Src\Server;
+
+use mysqli;
+use Exception;
+
 class Database
 {
     static string $username = "root";

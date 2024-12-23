@@ -1,6 +1,8 @@
 <?php
 
-require_once 'Model.php';
+namespace Src\Models;
+use Src\Models\Model;
+use Src\Server\Database;
 
 class Param extends Model
 {

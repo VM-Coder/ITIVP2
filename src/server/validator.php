@@ -1,5 +1,7 @@
 <?php
 
+    namespace Src\Server;
+
     session_start();
     class Validator {
         private array $data;
@@ -20,7 +22,7 @@
         public function validate(){
             try {
                 if (count($this->data) != count($this->patterns) || count($this->patterns) != count($this->messages))
-                    throw new Exception('Массивы должны соедржать одинаковое количество элементов');
+                    throw new Exception('Массивы должны содержать одинаковое количество элементов');
                 
                 for ($i = 0; $i < count($this->data); $i++){
                     if (!preg_match($this->patterns[$i], $this->data[$i])){

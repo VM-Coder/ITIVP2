@@ -1,0 +1,1 @@
+{"version":1,"defects":{"RequestTest::testLogin":7,"ModelTest::testUserGet":7,"ModelTest::testUserWhere":7,"ValidatorTest::testEmailPasswordFail":7},"times":{"RequestTest::testLogin":0.959,"ModelTest::testUserGet":0.03,"ModelTest::testUserWhere":0.051,"ValidatorTest::testEmailPasswordSuccess":0.003,"ValidatorTest::testEmailPasswordFail":0.001}}
