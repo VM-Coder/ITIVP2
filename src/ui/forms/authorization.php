@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    $theme = isset($_COOKIE['theme']) ? sodium_crypto_aead_aes256gcm_decrypt($_COOKIE['theme'], 'theme', 'abcdefabcdef', $_SESSION['key']) : 'light';
+    $theme = isset($_COOKIE['theme']) && isset($_SESSION['key']) ? sodium_crypto_aead_aes256gcm_decrypt($_COOKIE['theme'], 'theme', 'abcdefabcdef', $_SESSION['key']) : 'light';
 
     $vars = [
         'bg' => 'bg-white',

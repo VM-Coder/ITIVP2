@@ -37,7 +37,7 @@ if ($theme == 'dark') {
     }
 </script>
 
-<form onsubmit="form_process(event)" method="POST" enctype="multipart/form-data" action="user/update/car" class="rounded-xl flex flex-col gap-4 w-1/2 <?= $vars['bg'] ?> inset-0 m-auto p-12 ">
+<form onsubmit="form_process(event)" method="POST" enctype="multipart/form-data" action="user/update/car" class="mt-[5000px] rounded-xl flex flex-col gap-4 w-1/2 <?= $vars['bg'] ?> inset-0 m-auto p-12 ">
     <?php if (!isset($car)) : ?>
         <h2>Автомобиль отсутствует</h2>
         <button type="submit" class="<?= $button_style ?>">Добавить автомобиль</button>
@@ -70,7 +70,7 @@ if ($theme == 'dark') {
                 $alt = 'Файл поврежден или не является изображением';
             }
             ?>
-            <img alt='<?= $alt ?>' src="https://traffic-control.local/src/uploads/cars/<?= $car->image ?>" />
+            <img loading="lazy" alt='<?= $alt ?>' src="https://traffic-control.local/src/uploads/cars/<?= $car->image ?>" />
         <? endif; ?>
         <button type="submit" class="<?= $button_style ?>">Сохранить изменения</button>
     <?php endif; ?>

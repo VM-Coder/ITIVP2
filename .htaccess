@@ -40,6 +40,8 @@ RewriteRule ^param/update/map?$ src/server/router.php
 # static files
 
 RewriteRule ^style.css$ src/pages/style.css
+RewriteRule ^script.js$ src/pages/script.js
+RewriteRule ^script_min.js$ src/pages/script_min.js
 
 # error pages
 

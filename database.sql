@@ -214,3 +214,7 @@ INSERT INTO params (param, value) VALUES
 
 ALTER TABLE user
 ADD COLUMN avatar BLOB DEFAULT NULL;
+
+-- Lab7
+
+CREATE INDEX user_index ON user(email);
