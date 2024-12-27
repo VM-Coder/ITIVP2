@@ -16,6 +16,26 @@ class UserController
     public static function login()
     {
         try {
+            
+            $validator = new Validator(
+                [
+                    $_POST['email'],
+                    $_POST['password']
+                ],
+                [
+                    '/^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$/',
+                    '/^[\w\-\.#?!@$%^&*]{8,32}$/',
+                ],
+                [
+                    'Неверный адрес почты',
+                    'Пароль должен состоять из букв латинского алфавита, цифр, символов .#?!@$%^&*- и иметь длину от 8 до 32 символов',
+                ]
+            );
+
+            if (!$validator->validate())
+                throw new Exception($validator->last_message);
+            
+
             $users = User::where([
                 'email = \'' . $_POST['email'] . '\'',
                 'password = \'' . sha1($_POST['password']) . '\''
@@ -122,9 +142,14 @@ class UserController
     public static function signup()
     {
         try {
+
+            if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+                throw new Exception("Неверный токен безопасности.");
+            }
+
             if ($_POST['password'] != $_POST['password_confirm'])
                 throw new Exception("Пароли не совпадают");
-
+            
             $validator = new Validator(
                 [
                     $_POST['email'],

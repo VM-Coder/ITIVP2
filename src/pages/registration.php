@@ -1,7 +1,7 @@
 <?php 
     require_once 'template.php';
 
-    head(title: "Авторизация");
+    head(title: "Регистрация");
     body_top();
 
     include( '../ui/forms/registration.php');

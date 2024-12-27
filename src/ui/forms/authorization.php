@@ -1,29 +1,46 @@
 <?php
-    session_start();
+session_start();
 
-    $theme = isset($_COOKIE['theme']) ? sodium_crypto_aead_aes256gcm_decrypt($_COOKIE['theme'], 'theme', 'abcdefabcdef', $_SESSION['key']) : 'light';
+if (!isset($_SESSION['key'])) {
+    $_SESSION['key'] = random_bytes(SODIUM_CRYPTO_AEAD_AES256GCM_KEYBYTES);
+}
+$key = $_SESSION['key'];
 
-    $vars = [
-        'bg' => 'bg-white',
-        'text' => 'text-slate-700',
-        'link' => 'text-indigo-500',
-        'bg-input' => 'bg-slate-100',
-        'success' => 'text-green-500',
-        'error' => 'text-red-500'
-    ];
-    
-    if ($theme == 'dark') {
-        $vars = [
-            'bg' => 'bg-neutral-500',
-            'text' => 'text-slate-100',
-            'link' => 'text-white',
-            'bg-input' => 'bg-neutral-700',
-            'success' => 'text-green-300',
-            'error' => 'text-red-300'
-        ];
+$theme = 'light';
+if (isset($_COOKIE['theme'])) {
+    try {
+        $theme = sodium_crypto_aead_aes256gcm_decrypt(
+            $_COOKIE['theme'], 
+            'theme',          
+            'abcdefabcdef',  
+            $key             
+        );
+    } catch (SodiumException $e) {
+        error_log($e->getMessage());
     }
+}
 
-    $input_style = "p-4 h-12 " . $vars['bg-input'] . " border-slate-100 focus:border-indigo-500 focus:bg-white outline-none border-2 rounded-lg";
+$vars = [
+    'bg' => 'bg-white',
+    'text' => 'text-slate-700',
+    'link' => 'text-indigo-500',
+    'bg-input' => 'bg-slate-100',
+    'success' => 'text-green-500',
+    'error' => 'text-red-500'
+];
+
+if ($theme === 'dark') {
+    $vars = [
+        'bg' => 'bg-neutral-500',
+        'text' => 'text-slate-100',
+        'link' => 'text-white',
+        'bg-input' => 'bg-neutral-700',
+        'success' => 'text-green-300',
+        'error' => 'text-red-300'
+    ];
+}
+
+$input_style = "p-4 h-12 " . $vars['bg-input'] . " border-slate-100 focus:border-indigo-500 focus:bg-white outline-none border-2 rounded-lg";
 ?>
 
 <form method="POST" class="flex flex-col <?= $vars['bg'] ?> absolute p-12 box-content inset-0 w-64 h-fit m-auto gap-4 rounded-lg shadow-lg" action="user/login">
@@ -39,6 +56,5 @@
 </form>
 
 <?php
-    unset($_SESSION['error']);
+unset($_SESSION['error']);
 ?>
-

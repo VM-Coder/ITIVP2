@@ -1,6 +1,10 @@
 <?php
     session_start();
 
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+
     $input_style = "p-4 h-12 bg-slate-100 border-slate-100 focus:border-indigo-500 focus:bg-white outline-none border-2 rounded-lg";
 ?>
 
@@ -12,6 +16,7 @@
     <input type="text" name="lastname" class="<?= $input_style ?>" placeholder="Фамилия" required/>
     <input type="password" name="password" class="<?= $input_style ?>" placeholder="Пароль" required/>
     <input type="password" name="password_confirm" class="<?= $input_style ?>" placeholder="Повторите пароль" required/>
+    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>" />
     <p class="text-center text-red-600"><?= !isset($_SESSION['error']) ? '' : $_SESSION['error'] ?></p>
     <button type="submit" class="
         p-2 h-12 text-white hover:bg-gradient-to-r hover:from-sky-400 hover:to-indigo-400 bg-gradient-to-r from-sky-500 to-indigo-500 rounded-lg
